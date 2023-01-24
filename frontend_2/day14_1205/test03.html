@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <h1>배열</h1>
+    <div>
+        배열API 좀더 섬세히 개발이 되어 있음 
+        배열은 연속적인 메모리에 들어가는 자료 구조
+        filter(callback)
+        map(callback) : 값자체를 리턴하거나 값을 조작
+        reduce(callback) : 누적합계 구하기 
+    </div>
+     
+    <script>
+         const arys = [11, -2, 30,-44, 95, 106, 7];
+
+         let sum = 0; 
+         for( ary of arys ){
+             sum += ary;
+         }
+         console.log('총합 : ', sum );
+
+         const summary = arys.reduce((prev, next)=>prev + next);
+         console.log('총합 : ', summary );
+
+
+         
+
+         const students =[
+            {id:1, name:'kim', age:30},
+            {id:2, name:'park', age:23},
+            {id:3, name:'lee', age:22},
+            {id:4, name:'you', age:33},
+         ]
+          
+         const result1 = students.reduce((add, value)=> add + value.age, 0);
+         // 첫번째 파라미터  add : 누적합을 구하는 변수 
+         // 0은 add = 0
+         // value각각의 객체 낱개
+         console.log( result1 );
+         console.log( result1/students.length );
+
+
+         const snacks = ['새우깡',  '꿀과빼기', '콘칩', '감자깡', '포테이토칩', '에이스', '참크리커'];
+
+         let str = '';
+         snacks.forEach((snack, index)=>{
+            str += snack;  
+         })
+         console.log( str);
+
+         const snacksConcat = snacks.reduce( (prev, next)=> prev+next);
+         console.log( snacksConcat );
+
+         let result2 = snacks[0].concat(snacks[2]);
+         console.log( result2);
+
+         let result3 = 'hello'.concat('javascript');
+         console.log( result3);
+
+         const snacksConcat2 = snacks.reduce( (prev, next)=> prev.concat(next));
+         console.log( snacksConcat2 );
+
+         snacks.sort(); // 새로운 배열을 만들지 않고 원본배열을 수정 
+         console.log( snacks);
+         
+         snacks.reverse(); // 배열을 꺼꾸로
+         console.log( snacks);
+         
+    </script>
+</body>
+</html>

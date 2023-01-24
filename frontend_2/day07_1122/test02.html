@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{ overflow-x: hidden;}
+        .bg-container{
+            position: fixed; z-index: -1;
+            width:100%; left:0; height: 100vh; top:0;
+            /* overflow: hidden; */
+            background-color: antiquewhite;
+        }
+        .circle{ width: 60vw; height: 60vw ;
+            border-radius: 700px;
+            background-color: skyblue;
+            background-image: url(https://images.unsplash.com/photo-1669082072800-ee5e9a06b8d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);
+
+            background-size: cover;
+            background-position: center  -300px;
+            animation: circleAni  1s 1 forwards;
+            /* opacity:  0.3; */
+            transform: translateX( 30vw) scale(1);
+            box-shadow: 0 0 0 10px rgba(255, 166, 0, 0.411);
+        }
+ 
+        @keyframes circleAni{
+            0%{ transform: translateX( 30vw)  scale(0);}
+            100%{ transform: translateX( 30vw)  scale(1);}
+        }
+
+        .header-container{ width:80%; 
+            justify-content: space-between;
+            margin:50px auto;
+
+            position: fixed; top:0; left:10%; 
+        }
+        .lnb ul{ gap: 3em;}
+        .sns-container ul{ gap: 1em;}
+
+        section{ height: 200vh;}
+    </style>
+</head>
+<body>
+    <div class="bg-container">
+         <div class="circle">
+         </div>
+    </div>
+    <header>
+        <div class="header-container flex">
+            <h1>My Brand</h1>
+            <nav class="lnb">
+                <ul class="flex">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">PAGE</a></li>
+                    <li><a href="#">ELEMENTS</a></li>
+                    <li><a href="#">BLOG</a></li>
+                </ul>
+            </nav>
+            <div class="sns-container">
+                <ul class="flex">
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-blogger-b"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section>
+         
+    </section>
+</body>
+</html>

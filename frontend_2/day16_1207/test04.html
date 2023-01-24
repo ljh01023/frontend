@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h1>요소 추가</h1>
+    <button class="add"> 요소추가 </button>
+    <ul class="log">
+
+    </ul>
+    <script>
+        const snacks = ['새우깡', '양파깡', '떡볶이', '에이스', '포테이토칩'];
+
+        const addBtn = document.querySelector('.add');
+
+        addBtn.addEventListener('click', () => {
+            for (snack of snacks) {
+                const li = document.createElement('li');
+                li.innerHTML = snack;
+                document.querySelector('.log').append(li);
+            }
+
+            // 비동기 처리 : 데이터를 가져올때까지 기다렸다가 실행
+            // 동기 처리 : 데이터를 가져올때까지 기다리지 않고 즉시 실행 
+            // setInterval() 동기처리, 비동기처리 
+            // promise => async, await
+            const lis = document.querySelectorAll('li');
+            console.log(lis);
+            lis.forEach((li) => {
+                li.addEventListener('click', (event) => {
+                    event.target.remove();
+                })
+            })
+        }) 
+    </script>
+    <!-- <script>
+        let count = 0; 
+        addBtn.addEventListener('click', ()=>{
+            // str = `<li>${snacks[count++]}</li>`;
+            // document.querySelector('.log').innerHTML = str;
+
+            if( count < snacks.length ){
+                const li = document.createElement('li');
+                console.log(li);
+                li.innerHTML = snacks[count++];
+                document.querySelector('.log').appendChild(li);
+            }else{
+                alert('재료 소진');
+            }
+        })
+    </script> -->
+    <!-- 
+        global 함수 확인하기
+     -->
+</body>
+
+</html>

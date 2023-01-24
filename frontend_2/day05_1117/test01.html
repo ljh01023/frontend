@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        table{ width: 1000px;  
+            border-collapse: collapse;
+            margin: 100px auto;
+            border:1px solid gray; 
+        }
+        th, td{ border:1px solid gray; height:60px;
+                border-right:none; 
+                border-left:none;
+        }
+        th:first-child{ width: 90px; }
+        th:nth-child(2){ text-align: left; padding-left: 20px; width: 220px;}
+        th:nth-child(3){  width: 220px;}
+        td:nth-child(1),
+        td:nth-child(4),
+        td:nth-child(5),
+        td:nth-child(6){ text-align: center;}
+        button{ padding:10px  20px;  border:none;
+            background-color: green; color:#fff; 
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        td:nth-child(2){ padding-left: 20px;  }
+        td:nth-child(2) span{ display: inline-block; margin-left: 10px; }
+        td:nth-child(3){ padding-right: 20px; text-align: right;}
+
+        @media screen  and (max-width:1024px) {
+            table{ width:98%; }
+            th:nth-child(3){  width: 23%;}
+        }
+
+        @media screen  and (max-width:760px) {
+            table{ width:100%; }
+            th:nth-child(3){  width: 26%;}
+            th:last-child,
+            td:last-child{ display: none;}
+        }
+        @media screen  and (max-width:660px) {
+            th:nth-child(1){ width:50px;}
+            td:nth-child(2){ width:100px; }
+            td:nth-child(2) span:nth-child(3){ display: none;  }
+            th:nth-child(3){  width:220px;}
+            th:nth-child(5),
+            td:nth-child(5),
+            th:last-child,
+            td:last-child{ display: none;}
+        }
+        @media screen  and (max-width:480px) { 
+            td:nth-child(2) i{ display: none; }    
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Change</th>
+                <th>Chart</th>
+                <th>Trade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>
+                    <i class="fa-brands fa-bitcoin"></i> 
+                    <span>Bitcoin</span>
+                    <span>BTC</span>
+                </td>
+                <td> ￦ 37,156,413.16489  </td>
+                <td> -5.76% </td>
+                <td> chart  </td>
+                <td><button> buy </button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>
+                    <i class="fa-solid fa-hand"></i>
+                    <span>Eliereum</span>
+                    <span>Eli</span>
+                </td>
+                <td> ￦  7,516,413.16489  </td>
+                <td> -5.76% </td>
+                <td> chart  </td>
+                <td><button> buy </button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>
+                    <i class="fa-solid fa-ghost"></i>
+                    <span>Cardano</span>
+                    <span>ADA</span>
+                </td>
+                <td> ￦ 37,156.16489  </td>
+                <td> -5.76% </td>
+                <td> chart  </td>
+                <td><button> buy </button></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

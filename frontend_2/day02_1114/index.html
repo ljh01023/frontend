@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/reset.css">
+    <style>
+        body{ height: 100vh;
+              background: linear-gradient(90deg, pink  50%, rgba(255, 192, 203, 0.107) 0 );
+              background-size: 10px;
+              font-size: 12px;
+        }
+
+        .container{ width:1200px; 
+            background-color: white;
+            margin: auto;
+        }
+
+        header{ height: 240px; background-color:#ebdaac;
+            display: flex;
+            align-items: flex-end;
+            background-image: url(./images/topbg3.png);
+            background-repeat: no-repeat;
+        }
+        h1{ font-size:0; }
+        /* 검색은 되고 보이지는 않도록  */
+        nav{ width:100%;  height: 50px; background-color: darkcyan;}
+
+        .lnb{ display: flex; align-items: center; height: 50px;
+            gap: 30px; padding-left: 20px;
+        }
+        .lnb a{ display: block; font-weight: bold;
+                color:white;
+                padding:10px  20px;
+                border-radius:  10px 10px 0 0;
+        }
+        .lnb a:hover{ background-color: white; color:darkcyan;}
+
+
+        .top-section{ display: flex;}
+        .top-section .content01{ width: 45%; }
+        .top-section .content02{ width: 55%; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left:3em;
+        }
+        h2{ font-size: 36px;}
+        .top-section .content02>div:nth-of-type(1){ margin-bottom: 1em;}
+        .top-section .content02 br{  display: none; }
+      
+        .contents{ display: flex; gap: 10px;}
+        .contents>div{ width: 25%; height: 250px;background-color: white;}
+
+        .info-content .info-title{ font-size: 28px;
+            font-weight: bold;
+            background-color: antiquewhite;
+            padding: 0.5em;
+            margin-bottom: 0.5em;
+        }
+        .info-content li{ line-height: 2;   
+            list-style-type: circle;
+            margin-left: 40px;
+        }
+
+        .info-content span{ display: inline-block; width: 5em;
+            font-weight: bold;
+        }
+
+        .content{  background-size: cover; 
+            background-position: center center;
+            /* 보여질 부분을 기준으로 배치 */
+            position: relative;
+        }
+        .content.content02{ background-image: url(./images/flower01.jpg);}
+        .content.content03{ background-image: url(./images/flower02.jpg);}
+        .content.content04{ background-image: url(./images/flower03.jpg);
+               
+        }
+
+        .content.content04 h2{  letter-spacing: -1.6px;}
+        .whiteBg{ height: 90px; background-color: rgba( 255, 255, 255, 0.5);
+                text-align: right;
+                position: absolute;
+                bottom: 50px; width:100%;
+                display: flex;  
+                flex-direction: column;
+                justify-content: center;
+        }
+
+        .whiteBg h2{ font-size: 24px; padding-right: 1rem; }
+        .whiteBg p{ padding-right:1rem;
+            overflow: hidden;
+            white-space: nowrap;
+            /* 여러줄을 한줄로 표시  */
+            text-overflow: ellipsis;
+            /* ... 생략형으로 표시 */
+        }
+        /* 
+            ... 생략형으로 표시하려면  
+            위의 3개 속성이 모두 필요함
+            li, td, th , span: block으로 바꾸어 주고 사용
+        */
+        /* 
+            em{ 사용된 구조의 폰트 크기의 비율 }
+            rem{ root : 최상위 레벨의 폰트의 크기의 비율}
+        */
+
+        footer{ height: 50px; 
+            background-color: antiquewhite;
+        }
+        .footer-container{ line-height: 50px;
+            padding-left:1rem;
+        }
+        @media screen and ( max-width: 1250px) {
+            .container{ width:98%; }
+        }
+        @media screen and ( max-width: 1000px) {
+            header{ background-image: url(./images/topbg2.png);
+                background-color: #eee0bb;
+            }
+
+            .lnb{ gap: 0; }
+            .top-section .content01{ width: 50%; }
+            .top-section .content02{ width: 50%;  } 
+            .top-section .content02 br{  display: inline; } 
+
+
+            .contents{ flex-wrap: wrap;}
+            .contents>div{ width: calc(50% - 5px);} 
+           
+        }
+        @media screen and ( max-width: 670px) {
+            header{ background-image: url(./images/topbg1.png);
+                background-position: center top;
+            }
+            .top-section{ flex-wrap: wrap ;}
+            .top-section .content01{ width: 100%; }
+            .top-section .content02{ width: 100%; padding:3em; } 
+            .contents>div{ width: 100%;}  
+
+            .whiteBg h2{ font-size: 24px; 
+                padding-right: 2rem; }
+            .whiteBg p{ padding-right:2rem;}
+            /* 
+                em{ 사용된 구조의 폰트 크기의 비율 }
+                rem{ root : 최상위 레벨의 폰트의 크기의 비율}
+            */
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>향기나는 꽃집 flower shop</h1>
+            <nav>
+                <ul class="lnb">
+                    <li><a href="#">꽃다발</a></li>
+                    <li><a href="#">꽃바구니</a></li>
+                    <li><a href="#">화환</a></li>
+                    <li><a href="#">화분</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="top-section">
+            <div class="content01">
+                <img src="./images/shop.png" alt="">
+            </div>
+            <div class="content02">
+                <h2>향기나는 꽃집</h2>
+                <h3>아모르젠 에디션</h3>
+                <div>활짝 핀 꽃과 함께 하는 <br> 기분 좋은 하루를 <br> 만나보세요</div>
+
+                <div><strong>MOOOI</strong> Flower Subscription</div>
+            </div>
+        </section>
+        <section class="btm-section">
+            <div class="contents">
+                <div class="content01 info-content">
+                    <p class="info-title">고객 상담 안내</p>
+                    <ul>
+                        <li><span>전화</span><a href="tel:031-868-1313">031-868-1313</a></li>
+                        <li><span>팩스</span><a href="#">031-868-98563</a></li>
+                    <li><span>운영시간</span><time>오전  9시 ~ 오후 6시</time>   </li>
+                    <li><span>점심시간</span><time>12시 ~ 1시</time>   </li>
+                    </ul>
+                </div>
+                <div class="content content02">
+                    <div class="whiteBg">
+                        <h2>축하 감사의 서양난</h2>
+                        <p>소중한 분들에게 오래 볼 수 있는 서양난을 선물하세요.</p>
+                    </div>
+                </div>
+                <div class="content content03">
+                    <div class="whiteBg">
+                        <h2>특별한 날, 특별한 부케</h2>
+                        <p>신부를 위한 최고의 선택이에요.</p>
+                    </div>
+                </div>
+                <div class="content content04">
+                    <div class="whiteBg">
+                        <h2>시즌플라워 최대 30%할인</h2>
+                        <p>지금이 아니면 또 일년을 기다려야 해요.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="footer-container">
+                copyright &copy;
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

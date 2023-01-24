@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+        h1 {}
+
+        /* selector = 선택자 */
+        #box {}
+
+        .element {}
+
+        #box>.element {}
+    </style>
+</head>
+
+<body>
+    <h1>TITLE</h1>
+    <div id="box">
+        <div class="element">element</div>
+    </div>
+    <div>
+        <pre>
+            입력(메모리) -> 처리(연산자) ->  출력(DOM, console)
+        </pre>
+    </div>
+    <script>
+        const h1 = document.getElementsByTagName('h1')[0]; // <>
+        // javascript 의 선택자
+        console.log(h1.innerHTML); //ineerHtml : 태그안에 내용 넣음 (h1안에 텍스트)
+
+        let data = h1.innerHTML;
+
+        // jQuery $('h1'), $('.element') , $('#box')
+        const $box = document.getElementById('box');  // #
+        console.log($box.innerHTML)
+
+        const $element = document.getElementsByClassName('element')[0]; // . 
+        console.log($element.innerHTML);
+
+        // 자손, 자식 선택자를 선택하기 위한 험란한 일이 있다. 
+    </script>
+</body>
+
+</html>

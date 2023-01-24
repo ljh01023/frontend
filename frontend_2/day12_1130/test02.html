@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <style>
+        .box-container{}
+        div.inner#inner{  background-color: green;}
+        /* 아이디 우선순위는 100 */
+        .outer>.inner{ background-color: pink; }
+        /* 클래스선택자 우선순위 : 10 + 10 = 20, 디자인 적용 */
+        div.inner{ background-color: skyblue;}
+        /* 우선순위  1 + 10 = 11 */
+        .inner{ background-color: orange; }
+        .inner{ background-color: blue; }
+        /* 우선순위 : 10  */
+        
+        .next{}
+        .box-container>div:nth-child(3){}
+        .prev+div+div{ background-color: skyblue;}
+        .prev~button{ background-color: black; color:white;}
+    </style> -->
+    <!-- 
+        유교 :  css 는  자식들을 제어, 동생제어하는 가능 
+        부모나 형들은 제어 불가
+        js : 누구나 제어 가능, 선택자가 자유로운 
+     -->
+</head>
+
+<body>
+    <div class="box-container on">
+        <div class="prev on">PREV</div>
+        <div class="outer">
+            <div class="inner on" id="inner">
+                <div class="center">TEXT</div>
+            </div>
+        </div>
+        <div class="next">NEXT</div>
+        <div class="sibling">sibling</div>
+        <button>last</button>
+    </div>
+    <!-- 
+        tag : 명령어(죽은개념)
+        element(요소) = node 
+        공백, 엔터 =  white-space 도 js는 자식으로 인식
+     -->
+    <script>
+        const div = document.getElementsByTagName('div');
+        const innerClass = document.getElementsByClassName('inner');
+        const innerId = document.getElementById('inner');
+
+        const sInnerClass = document.querySelector('.inner');
+        const sDiv3 = document.querySelector('.box-container>div:nth-child(3)');
+
+        const onSelector = document.querySelectorAll('.on');
+        const onClass = document.getElementsByClassName('on');
+        console.log(onSelector);
+        console.log(onClass);
+
+        onSelector.forEach(function (selecter, index) {
+            console.log(selecter, onSelector[index]);
+        })
+        // NodeList : 대부분 실시간 반영 안되고, 예외로 반영될 수 있음
+        /*
+        onClass.forEach(function(selecter, index){
+            console.log( selecter, onClass[index] );
+        })
+        // HTMLCollection : 실시간 처리되는 요소 지워도, 삽입
+        */
+        for (let a = 0; a < onClass.length; a++) {
+            console.log(onClass[a]);
+        }
+
+        for (a of onClass) {
+            console.log(a);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+        .div {
+            width: 500px;
+            height: 500px;
+            background-color: red;
+        }
+
+        .ul {
+            width: 400px;
+            height: 400px;
+            background-color: green;
+        }
+
+        .li {
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+        }
+
+        .a {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div flex">
+        <div class="ul flex">
+            <div class="li flex">
+                <div class="a"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const div = document.querySelector('.div');
+        div.addEventListener('click', clickHandler);
+
+        function clickHandler(event) {
+            console.log(event.currentTarget, event.target);
+            /// event : 이름은 아무거나 상관
+            //  e : error
+            // ev, er
+            // event.target : 실제로 클릭된 element
+            // event.currentTarget : 이벤트 핸들러가 등록된 target == this
+        }
+    </script>
+</body>
+
+</html>

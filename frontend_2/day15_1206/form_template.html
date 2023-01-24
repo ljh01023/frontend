@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <!-- 
+        mdn에서 input 검색
+        https://developer.mozilla.org/ko/docs/Web/HTML/Element/Input
+
+        https://www.w3schools.com/html/html_form_elements.asp
+        https://www.w3schools.com/html/html_form_input_types.asp
+     -->
+</head>
+<body>
+    
+    <h1>form</h1>
+    <form action="입력된 데이터를 처리할 파일, jsp, asp, html, js" method="데이터를 전달하는 방법 get, post">
+        <div>
+            <label for="userId">아이디</label>
+            <input type="text" id="userId"  name="userId" class="userId" placeholder="아이디를 입력하세요."
+            maxlength="5"
+            >    
+        </div> 
+        <div>
+            <label for="userPw">비밀번호</label>
+            <input type="password" id="userPw" name="userPw" class="userPw" placeholder="비밀번호를 입력하세요.">
+        </div>
+        <div>
+            <label for="search"> 검색어
+                <input type="search" id="search" name="search"   placeholder="검색어를 입력하세요.">
+            </label>
+        </div>
+        <div>
+            <label for="email"> email
+                <input type="email" id="email" name="email"   placeholder="email를 입력하세요.">
+                <!-- 
+                    유효성검사가 자동으로 됨
+                 -->
+            </label>
+        </div>
+        <div>
+            <label for="number"> Number </label>
+                <input type="number" id="number" name="number"   
+                    placeholder="정수를 입력하세요."
+                    min="5"  max="10"
+                >
+                <!-- 
+                    문자를 입력하면 입력되지 않고 
+                    숫자만 입력가능 
+                    min="5"  max="10" 숫자의 최소, 최대값 지정
+                    maxlength="5" 문자열의 입력개수를 지정
+                 -->
+        </div>
+        <div>
+            <label for="tel"> 전화번호 </label>
+            <input type="tel" id="tel" name="tel"   
+                placeholder="전화번호를 입력하세요." 
+            >
+            <!-- 모바일에서 숫자키패드가 나오게 하고  -->
+        </div>
+        <div>
+            <label for="url"> 사이트 주소 </label>
+            <input type="url" id="url" name="url"   
+                placeholder="사이트 주소를 입력하세요." 
+            >
+            <!-- 다른 사이트로 이동하기 편하게 사용할 수 있고  -->
+        </div>
+        <div>
+            <input type="checkbox" id="agree" name="agree"><label for="agree">동의합니다.</label> 
+            <!-- 
+                동의, 미동의  두개를 만들지않고 하나로 헛갈리지 않도록 만들어야 함 
+                라벨을 이용해서 체크를 선택할 수도 있도록 웹접근성을 향상
+             -->
+        </div>
+        <div>
+            <fieldset>
+                <legend>과목을 선택하세요. (중복 선택 가능)</legend>
+                <input type="checkbox" id="html" name="html">
+                <label for="html">HTML</label>
+                <input type="checkbox" id="css" name="css">
+                <label for="css">CSS</label>
+                <input type="checkbox" id="javascript" name="javascript">
+                <label for="javascript">JAVASCRIPT</label>
+                <input type="checkbox" id="nodejs" name="nodejs">
+                <label for="nodejs">NODE JS</label>
+            </fieldset>
+        </div>
+        <div>
+            <fieldset>
+                <legend>필수과목을 선택하세요. (한과목만 선택)</legend>
+                <input type="radio" id="subject1" name="subject">
+                <label for="subject1">HTML</label>
+                <input type="radio" id="subject2" name="subject">
+                <label for="subject2">CSS</label>
+                <input type="radio" id="subject3" name="subject">
+                <label for="subject3">JAVASCRIPT</label>
+                <input type="radio" id="subject4" name="subject">
+                <label for="subject4">NODE JS</label>
+            </fieldset>
+            <!-- name을 이용하여 그룹 만들어 주어야 하나만 배타적으로 선택됨 -->
+        </div>
+        <div>
+            <input type="color">
+            <!-- 그림판 만들때 필요  -->
+        </div>
+        <div>
+            <input type="date">
+            <!-- 달력  -->
+        </div>
+        <div>
+            <input type="time">
+            <!-- time  -->
+        </div>
+        <div>
+            <input type="range"  max="10"  min="0"  step="2" value="8">
+            <!-- step="20" 을 지정하여 필요한 값 지정   
+                 value="20" 기본값을 설정
+            -->
+        </div>
+        <div>
+            <textarea name="textarea" id="textarea" cols="30" rows="5" placeholder="300자이하로 입력해주세요."></textarea>
+            <!-- 
+                cols="30" 칸수
+                rows="10" 줄수
+             -->
+        </div>
+        <div>
+            <select name="select1" id="select1">
+                <option value="0">통신사를 선택하세요.</option>
+                <option value="1">SKT</option>
+                <option value="2">KT</option>
+                <option value="3">LG</option>
+            </select>
+            <select name="select2" id="select2">
+                <option  >통신사를 선택하세요.</option>
+                <option  >SKT</option>
+                <option  >KT</option>
+                <option  >LG</option>
+            </select>
+            <!-- 
+                value 속성이 없으면 value를  TEXT를 사용 
+                value 속성이 있으면 속성을 사용
+                디자인이 불편해서 div,ul를 이용해서 select처럼 구현하여 사용하기도 함
+             -->
+             <select name="select3" id="select3">
+                <option>지역을 선택하세요.</option>
+                <option>서울</option>
+                <optgroup>
+                    <option>마포구</option>
+                    <option>서대문구</option>
+                    <option>은평구</option>
+                </optgroup>
+                <option>인천광역시</option> 
+                <optgroup>
+                    <option>중구</option>
+                    <option>동구</option>
+                    <option>서구</option>
+                </optgroup>
+                 
+            </select>
+            <select name="select4" id="select4" size="5" multiple>
+                <option value="1">SKT</option>
+                <option value="2">KT</option>
+                <option value="3">LG</option>
+            </select>
+            <!--
+                size="5" 한번에 보여지는 option개수, list 타입으로 표시 
+                multiple 속성은 여러개를 선택할 수 있는 옵션 
+                shift + 선택 : 연속된 여러개 선택 
+                ctrl + 선택 : 떨어진 여러개 선택
+            -->
+        </div>
+        <div>
+            <input type="submit" value="전송">
+            <input type="reset" value="취소">
+            <input type="button" value="확인">
+            <button>click</button>
+        </div>
+
+    </form>
+
+     
+</body>
+</html>

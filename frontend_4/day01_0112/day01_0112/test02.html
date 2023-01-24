@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pagenation</title>
+    <style>
+        *{ margin:0; padding: 0;}
+        li{ list-style-type: none;}
+
+        .patenation-container{ 
+            padding:  20px;
+        }
+        .pagenation{ display: flex; gap: 5px;}
+        .pagenation li{ width: 25px; height: 25px; text-align: center; line-height: 25px;
+            border: 1px solid black;
+        }
+        .pagenation li.active{ 
+            background-color: black;
+            color:#fff; 
+        }
+
+        .table-container table{
+            border-collapse: collapse;
+            width: 100px;
+        }
+        
+        .table-container th,
+        .table-container td{
+            border:1px solid black; 
+            height: 40px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="pagerPerItem-container">
+        <select name="" id="pagePerItem">
+            <option value="5" selected>5</option>
+            <option value="7">7</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+        </select>
+        <span> 개 </span>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>index</th>
+                    <th>myId</th>
+                    <th>small_cover_image</th>
+                    <th>title_long</th>
+                    <th>rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td>index</td>
+                    <th>myId</th>
+                    <td><img src="small_cover_image"></td>
+                    <td>title_long</td>
+                    <td>rating</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+    <div class="patenation-container">
+        <div id="prev">prev</div>
+        <ul class="pagenation">
+            <!-- <li>1</li>
+            <li>2</li>
+            <li>4</li>
+            <li>5</li> -->
+        </ul>
+        <div id="next">next</div>
+    </div>
+    <!-- 
+        1. 전체 목록의 개수 
+        2. 페이지당 표현 개수 
+        3. 페이저 개수
+        4. 시작인덱스, 끝인덱스 
+        * 데이터는 0 인덱스, 표현되는 인덱스는 1부터
+     -->
+    <script>
+        let ary = [];
+        let pagePerCount = pagePerItem.value;
+        let pagers;
+        let currentPage; 
+        let startIndex;
+        let endIndex; 
+
+        let  pagenation = document.querySelector('.pagenation');
+        let  lists;
+        async function  loadDatas(){
+            const response = await fetch('https://yts.mx/api/v2/list_movies.json');
+            const datas = await response.json(); 
+            console.log(datas.data.movies[0]);
+            // ary = [...datas.data.movies];
+            // ary = datas.data.movies;
+
+            for( let a = 0 ; a<datas.data.movies.length ; a++){
+                const newMovie = { myId:a, ...datas.data.movies[a] }
+                ary.push(newMovie);
+                console.log( newMovie );
+            }
+            console.log( ary.length );
+
+            calculator();
+            pagenationHandle(); 
+            activeHandle(1); // 맨처음 오류
+            repeatDom();   
+        }
+        loadDatas();
+
+        function calculator(){
+            pagers = Math.ceil(ary.length / pagePerCount); 
+            startIndex = (currentPage - 1) * pagePerCount;
+            endIndex =  currentPage * pagePerCount; 
+        }
+        
+        function pagenationHandle(){
+            pagenation.innerHTML = '';
+            for(let a = 1;  a<= pagers ; a++){
+                let li = document.createElement('li');
+                li.classList.add('list');
+                li.innerHTML = a; 
+                //console.log( li );
+                if( currentPage === a) li.classList.add('active');
+                li.addEventListener('click', currentPageHandle );
+                pagenation.appendChild(li);
+            }
+            lists = document.querySelectorAll('.list');
+        }  
+
+        function currentPageHandle(){
+            console.log(this.innerHTML);
+            //1
+            activeHandle( this.innerHTML );
+        }
+
+        function activeHandle(num){
+            if( currentPage === 1  ) prev.style.display = "none";
+            if( currentPage > 1 ) prev.style.display = "block";
+            if( currentPage === 4 ) next.style.display = "none";
+            if( currentPage < 4 ) next.style.display = "block";
+            // 보임 숨김을 이용해서 오류 발생 차단
+
+            lists.forEach( list=> list.classList.remove('active'));
+
+            console.log(lists);
+            lists[num - 1].classList.add('active');
+
+            currentPage = Number(num);
+            startIndex = (currentPage - 1) * pagePerCount;
+            endIndex =  currentPage * pagePerCount;
+            repeatDom(); 
+        }
+
+        const tbody = document.querySelector('.table-container tbody');
+        repeatDom(); 
+        function repeatDom(){
+            const viewTr = ary.slice(startIndex, endIndex);
+           // console.log( viewTr );
+            tbody.innerHTML = '';
+            let str = '';
+            for( tr of viewTr ){
+                str += createDom( tr );
+            }
+            tbody.innerHTML = str; 
+        }
+        function createDom(data){
+            let str = `
+                <tr>
+                    <td>${data.id}</td>
+                    <td>${data.myId}</td>
+                    <td><img src="${data.small_cover_image}"></td>
+                    <td>${data.title_long}</td>
+                    <td>${data.rating}</td>
+                </tr>
+            `
+            return str; 
+        }
+
+        next.addEventListener('click', function(){
+            if( currentPage === pagers) return; 
+            currentPage++;
+            activeHandle(currentPage);
+        })
+
+        prev.addEventListener('click', function(){
+            if( currentPage > 0 ) {
+                currentPage--;
+                activeHandle(currentPage);
+            }
+        })
+
+        pagePerItem.addEventListener('change', function(){
+            pagePerCount = pagePerItem.value; 
+            console.log( pagePerCount);
+
+            calculator();
+            pagenationHandle(); 
+            activeHandle(1);  
+            repeatDom();   
+        })
+    </script>
+
+     
+</body> 
+</html>

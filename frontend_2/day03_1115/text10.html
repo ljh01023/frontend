@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+        body{ 
+            background: linear-gradient(90deg, rgb(79, 159, 191)  50%, rgb(173, 230, 249) 0);
+            background-size: 10px; 
+        }
+        .container{ width: 1200px; background-color: antiquewhite; margin: auto; 
+            position: relative;
+        }
+
+        header{ width:250px; height: 100vh;
+            background-color: rgba(255, 255, 255, 0.535);
+            float:left;
+            padding: 20px;
+        }
+        .header-container{ background-color: green;
+            height: 100%; width:100%; 
+        }
+        section{ margin: 0 300px 0 250px; 
+            height: 100vh;  background-color: pink;
+        }
+        aside{ width:300px; height: 100vh;
+            background-color: white;
+            position: absolute;  right:0; top:0;
+        }
+        aside>div{ width:100%; height: 400px;
+                overflow: hidden;
+                margin-bottom: 10px;
+                border-radius: 10px;
+        }
+        aside img{ width:100%; }
+        aside>div:hover{  filter:hue-rotate(180deg);}
+
+        footer{ width:1200px; margin: auto;
+            height: 100px; background-color: black;
+        }
+
+        @media screen and (max-width:1230px) {
+            .container{ width:98%; }
+            footer{ width:98%; }
+        }
+        @media screen and (max-width:1000px) {
+            section{ margin: 0  0  0 250px;  }
+            aside{ position: static; margin: 0  0  0 250px;
+                width:auto;  height: auto;
+                display: flex;
+            }
+            aside>div{ height:auto;}
+            /*  원래는 정의된 높이가 있다. */
+        }
+        @media screen and (max-width:600px) {
+            header{ float: none; width:100%; height: 100px;}
+            section{ margin: 0;  }
+            aside{   margin: 0  ;}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-container">
+                <h1><img src="./images/logo.png" alt=""> logo</h1>
+
+                <nav class="lnb">
+                    <ul>
+                        <li><a href="#">COMPANY</a></li>
+                        <li><a href="#">PRODUCT</a></li>
+                        <li><a href="#">NEWS&PR</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">CONTACT US</a></li>
+                        <li><a href="#">COMMUNITY</a></li>
+                    </ul>
+                </nav>
+
+                <div class="tell-container">
+                    <img src="./images/btn_tell_num.png" alt="">
+                </div>
+                <div class="follow-container">
+                    <div>
+                        <h2>We Follow</h2>
+                        <div class="more">
+                            <img src="./images/btn_more.png" alt="">
+                        </div>
+                    </div>
+                    <ul class="follow-list">
+                        <li><img src="./images/f_icon_01.png" alt=""></li>
+                        <li><img src="./images/f_icon_02.png" alt=""></li>
+                        <li><img src="./images/f_icon_03.png" alt=""></li>
+                        <li><img src="./images/f_icon_04.png" alt=""></li>
+                        <li><img src="./images/f_icon_05.png" alt=""></li>
+                        <li><img src="./images/f_icon_06.png" alt=""></li>
+                        <li><img src="./images/f_icon_07.png" alt=""></li>
+                        <li><img src="./images/f_icon_08.png" alt=""></li>
+                        <li><img src="./images/f_icon_09.png" alt=""></li>
+                        <li><img src="./images/f_icon_10.png" alt=""></li>
+                        <li><img src="./images/f_icon_11.png" alt=""></li>
+                        <li><img src="./images/f_icon_12.png" alt=""></li>
+                    </ul>
+                </div>
+                <div class="pbnews-container">
+                    <div>
+                        <h2>PB NEWS</h2>
+                        <div class="more"><img src="./images/btn_more.png" alt=""></div>
+                    </div>
+                    <ul class="event-list">
+                        <li><a href="#">홍길동씨가 떠오르는 별로 선정 되었습니다. </a></li>
+                        <li><a href="#">김길동씨가 떠오르는 별로 선정 되었습니다. </a></li>
+                        <li><a href="#">박길동씨가 떠오르는 별로 선정 되었습니다. </a></li>
+                        <li><a href="#">언제나 열정적인 도전이 우리에게 희망을 가져다 줄 수 있습니다. </a></li>
+                    </ul>
+                </div>
+                <div class="pbevent-container">
+                    <div>
+                        <h2>PB EVENT</h2>
+                        <div class="more"><img src="./images/btn_more.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="mainBanner"></div>
+            <div class="search-container">
+                <div>
+                    <label for="search">바게트검색</label>
+                    <input type="text" id="search">
+                </div>
+            </div>
+            <div class="product-container">
+                <div>
+                    <h2>PBPRODUCT</h2>
+                    <div class="more">
+                        <img src="./images/btn-detail.png" alt="">
+                    </div>
+                </div>
+                <p>7월 파리바게뜨가 전하는 '이달의 신제품' NEW ARRIVAR</p>
+                <ul class="product-list">
+                    <li><a href="#"><img src="./images/list_product_01.png" alt=""></a></li>
+                    <li><a href="#"><img src="./images/list_product_02.png" alt=""></a></li>
+                    <li><a href="#"><img src="./images/list_product_03.png" alt=""></a></li>
+                    <li><a href="#"><img src="./images/list_product_04.png" alt=""></a></li>
+                    <li><a href="#"><img src="./images/list_product_05.png" alt=""></a></li>
+                    <li><a href="#"><img src="./images/list_product_06.png" alt=""></a></li>
+                    <li><a href="#"><img src="./images/list_product_07.png" alt=""></a></li>
+                    <li><a href="#"><img src="./images/list_product_08.png" alt=""></a></li>
+                    <li><a href="#"><img src="./images/list_product_09.png" alt=""></a></li>
+                    <li><a href="#"><img src="./images/list_product_10.png" alt=""></a></li>
+                    <li><a href="#"><img src="./images/list_product_11.png" alt=""></a></li>
+                    <li><a href="#"><img src="./images/list_product_12.png" alt=""></a></li>
+                    <li><a href="#"><img src="./images/list_product_13.png" alt=""></a></li>
+                    <li><a href="#"><img src="./images/list_product_14.png" alt=""></a></li>
+                    <li><a href="#"><img src="./images/list_product_15.png" alt=""></a></li>
+                    <li><a href="#"><img src="./images/list_product_16.png" alt=""></a></li>
+                    <li><a href="#"><img src="./images/list_product_17.png" alt=""></a></li>
+                    <li><a href="#"><img src="./images/list_product_18.png" alt=""></a></li>
+                    <li><a href="#"><img src="./images/list_product_19.png" alt=""></a></li>
+                </ul>
+            </div>
+        </section>
+        <aside>
+            <div><img src="./images/bn_rwd_01.png" alt=""></div>
+            <div><img src="./images/bn_rwd_02.png" alt=""></div>
+            <div><img src="./images/bn_rwd_03.png" alt=""></div>
+        </aside>
+    </div>
+    <footer></footer>
+</body>
+</html>
+
+<!-- 
+    https://github.com/ahsor/paris
+ -->

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+        .flow-text-container{
+            height: 50px;  
+            border:1px solid black;
+            border-radius: 25px;
+            width:500px;   overflow: hidden;
+            position: relative;
+         }
+        .flow-text-container ul{ 
+            animation: textAni 20s alternate  infinite;
+            position: absolute;
+            width:100%; 
+        }
+        .flow-text-container li{ line-height: 50px;
+            text-indent: 2em;
+            /* border-bottom: 1px solid black; */
+        }
+
+        .flow-text-container a{ display: block;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 90%; 
+        }
+        @keyframes textAni{
+            0%{  top: 0; }
+            20%{ top: 0; }
+            25%{ top: -50px; }
+            45%{ top: -50px; }
+            50%{ top: -100px; }
+            70%{ top: -100px; }
+            75%{ top: -150px; }
+            95%{ top: -150px; }
+            100%{ top: -150px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="flow-text-container">
+        <ul>
+            <li><a href="#">Transition Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque debitis consequuntur aliquam culpa iure perferendis soluta sapiente aliquid quia dignissimos et dolorem aspernatur nisi incidunt, dicta illo? Voluptatibus, culpa similique!</a></li>
+            <li><a href="#">Transform Doloremque debitis consequuntur aliquam culpa iure perferendis soluta sapiente aliquid quia dignissimos et dolorem aspernatur nisi incidunt, dicta illo? Voluptatibus, culpa similique!</a></li>
+            <li><a href="#">Animation Doloremque debitis consequuntur aliquam culpa iure perferendis soluta sapiente aliquid quia dignissimos et dolorem aspernatur nisi incidunt, dicta illo? Voluptatibus, culpa similique!</a></li>
+            <li><a href="#">KeyframesDoloremque debitis consequuntur aliquam culpa iure perferendis soluta sapiente aliquid quia dignissimos et dolorem aspernatur nisi incidunt, dicta illo? Voluptatibus, culpa similique!</a></li>
+        </ul>
+    </div>
+</body>
+</html>

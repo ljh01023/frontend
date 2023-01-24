@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{ overflow-x: hidden;}
+        .bg-container{
+            position: absolute; z-index: -1;
+            width:100%; left:0; height: 300vh; top:0;
+            /* overflow: hidden; */
+            background-color: antiquewhite;
+            background-image: url(https://images.unsplash.com/photo-1669082072800-ee5e9a06b8d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);
+            background-size: cover;
+            background-position: center  -400px;
+
+            display: flex;
+            align-items: center;
+        }
+         
+        .skew-box{ width: 100%; height: 50vh; 
+            background-color:#9fccdd;
+            transform:skewY(-10deg);
+            transform-origin: left top;
+            position: relative;
+            animation: skewAni 100s infinite alternate;
+        }
+        .skew-box::after{ content:''; display: block;
+            position: absolute; width: 100%; height: 400px;
+            background-color:#9fccdd;
+            bottom: -200px; left:0; 
+            transform:skewY(10deg);
+            animation: afterAni 100s infinite alternate;
+        }
+ 
+        @keyframes skewAni{
+            0%{ transform: transform:skewY(-10deg);}
+            100%{ transform:skewY(10deg);}
+        }
+        @keyframes afterAni{
+            0%{ transform: transform:skewY(10deg);}
+            100%{ transform:skewY(-10deg);}
+        }
+
+        .header-container{ width:80%; 
+            justify-content: space-between;
+            margin:50px auto;
+
+            position: fixed; top:0; left:10%; 
+        }
+        .lnb ul{ gap: 3em;}
+        .sns-container ul{ gap: 1em;}
+
+        section{ height: 200vh;   margin-top: 400px;
+            /* position: relative; top: 100vh;  */
+        
+            /* background-color:#9fccdd; */
+        }
+        .banner{ width: 70vw; height: 500px; 
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.39);
+            margin : auto; 
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-container">
+          <div class="skew-box"></div>
+    </div>
+    <header>
+        <div class="header-container flex">
+            <h1>My Brand</h1>
+            <nav class="lnb">
+                <ul class="flex">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">PAGE</a></li>
+                    <li><a href="#">ELEMENTS</a></li>
+                    <li><a href="#">BLOG</a></li>
+                </ul>
+            </nav>
+            <div class="sns-container">
+                <ul class="flex">
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-blogger-b"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section>
+         <div class="banner">
+            <h2> lorem ipsum </h2>
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt omnis nostrum beatae necessitatibus reprehenderit iure alias optio maxime debitis non adipisci, explicabo tenetur illo ullam quasi aliquam modi asperiores nisi!</div>
+         </div>
+    </section>
+</body>
+</html>

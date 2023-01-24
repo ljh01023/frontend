@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>호이스팅</h1>
+    <!-- <script>
+        // var num ;
+        console.log( num );  // undefined;
+
+        var num = 10; // 선언 나중에 
+        console.log( num ) ; // 재정의 
+    </script> -->
+    <!-- <script>
+        // let num ; // js는 선언한 것처럼 실행 // 호이스팅
+        console.log( num ); 
+
+        let num ;
+    </script> -->
+
+    <!-- <script>
+        
+        add(); //  호이스팅
+
+        function add(){ 
+            console.log('add');
+        }
+    </script> -->
+    <script>
+        // add(); // 위에서 사용하면 에러
+
+        // 선언문
+        const  add = function(){ 
+            console.log('add');
+        }
+
+        add(); // 
+    </script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+    <!-- 
+        float layout 제작은 과제 
+        flex 로 제작 
+     -->
+     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+     <link rel="stylesheet" href="../style/reset.css">
+     <style>
+        header{ width:15%; height:100vh; 
+            background-color: rgba(255, 255, 0, 0.48); 
+            position: fixed;
+        }
+        nav{ width:85%; height: 30px; background-color: black;
+            margin-left:15%;
+        }            
+        section{ width:85%; background-color: pink;
+            margin-left:15%;
+        }    
+        article{ width:calc( 100% / 5); height: 260px; 
+                border:1px solid black;
+                float:left; 
+        }
+
+        article:nth-child(1){  width:calc(( 100% / 5) * 3); height: 520px;  }
+        article:nth-child(2){  width:calc(( 100% / 5) * 2);    }
+        article:nth-child(6){  width:calc(( 100% / 5) * 2);    }
+        article:nth-child(9){  width:calc(( 100% / 5) * 2);    }
+
+        /* article image add  */
+        article{ background-size: cover;}
+        article:nth-child(1){ 
+            background-image: url(./img/pic1.jpg);
+        }
+        article:nth-child(4){ 
+            background-image: url(./img/pic2.jpg);
+        }
+        article:nth-child(5){ 
+            background-image: url(./img/pic3.jpg);
+        }
+        article:nth-child(7){ 
+            background-image: url(./img/pic4.jpg);
+        }
+        article:nth-child(9){ 
+            background-image: url(./img/pic5.jpg);
+        }
+        article:nth-child(10){ 
+            background-image: url(./img/pic6.jpg);
+        }
+        article:nth-child(12){ 
+            background-image: url(./img/pic7.jpg);
+        }
+
+        /* content design  */
+        article{ position: relative;  overflow: hidden; transition:1s;   }
+        article:nth-child(1):hover .box01{ color: black;}
+        .box01{ font-size: 170px;
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                color:white; 
+                position: absolute; right:0; bottom:-50px; 
+        }
+
+        .box{ position: absolute; left: 20px; top:30px; }
+        article>i{ font-size: 200px; position: absolute; right: -200px; bottom:0; 
+            transition:1s;  opacity:0.5; color:white;
+        }
+        article:hover i{ right:0;  }
+        article:hover{  background-color: skyblue; color:white;  }
+        
+        article:nth-child(3){ background-color: rgb(185, 231, 249); }
+        article:nth-child(3) i{  right: -50px; bottom:-50px; 
+                animation: circle 2s linear infinite;
+        }
+
+        @keyframes circle{
+            100%{ transform:rotate(360deg);}
+        }
+        @media screen  and  (max-width:1600px) {
+            header{ position:static; width:100%; height: 100px;}
+            nav{ margin-left:0; width:100%;}
+            section{ margin-left:0; width:100%;}
+        }
+
+        @media screen  and  (max-width:1279px) {
+            article{ width:calc( 100% / 4); }
+            /* 전체 article 너비 기본도 바뀜 */
+            article:nth-child(1){  width:calc(( 100% / 4) * 3);    }
+            article:nth-child(2){  width:calc(( 100% / 4));    }
+            article:nth-child(6){  width:calc(( 100% / 4) * 2);    }
+            article:nth-child(7){  width:calc(( 100% / 4) * 2);    }
+            article:nth-child(9){  width:calc(( 100% / 4));    }
+            article:nth-child(10){  width:calc(( 100% / 4) * 2);    }
+        }
+
+        @media screen  and  (max-width:1024px) {
+            article{ width:calc( 100% / 3); }
+            /* 전체 article 너비 기본도 바뀜 */
+            article:nth-child(1){  width:100%;   }
+            article:nth-child(2){  width:calc(( 100% / 3) * 2);    }
+            article:nth-child(5){  display:none; }
+            article:nth-child(6){  width:calc(( 100% / 3) * 2);    }
+            article:nth-child(7){  width:calc( 100% / 3 );    }
+            article:nth-child(9){  width:calc( 100% / 3);    }
+            article:nth-child(10){  width:calc( 100% / 3);    }
+        }
+        @media screen  and  (max-width:780px) {
+            nav{ display:none; } 
+            article{ width:calc( 100% / 2); }
+            /* 전체 article 너비 기본도 바뀜 */
+            article:nth-child(1){  width:100%;   }
+            article:nth-child(2){  width:100%;    }
+            article:nth-child(6){  width:100%;    }
+            article:nth-child(7){  width:calc( 100% / 2 );    }
+            article:nth-child(9){  width:calc( 100% / 2);    }
+            article:nth-child(10){  width:calc( 100% / 2);    }
+        }
+
+        @media screen  and  (max-width:480px) { 
+            header{ position: fixed; top:0; bottom:0; left:0; right:0;
+                z-index: 9;  height: auto;
+                /* max-width:1600px 높이가 고정 되어 있으므로 auto 로 바꾸면 화면 꽉찬 높이를 가짐 */
+            }
+            article{ display:none;  }
+            /* 전체 article 너비 기본도 바뀜 */
+            article:nth-child(1){ display:block;   
+                position: fixed; width:100%; height: 100vh;  } 
+        }
+     </style>
+</head>
+<body>
+    <header></header>
+    <nav></nav>
+    <section>
+        <article><div class="box01">Article01</div></article>
+        <article>
+            <div class="box  box02">
+                <h2>Article02</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente animi ratione suscipit consequuntur amet. </p>
+            </div>
+            <i class='bx bxs-right-arrow-circle'></i>    
+        </article>
+        <article>
+            <i class='bx bx-revision' ></i>    
+        </article>
+        <article>article04</article>
+        <article></article>
+        <article><i class='bx bx-right-arrow-alt' ></i></article>
+        <article>article07</article>
+        <article><i class='bx bx-right-arrow-alt' ></i></article>
+        <article>article09</article>
+        <article>article10</article>
+        <article><i class='bx bx-right-arrow-alt' ></i></article>
+        <article>article12</article>
+    </section>
+</body>
+</html>
+
+  <!--
+    hotel 완성 시켜보세요. 
+    아예 처음부터 다시 제작해보세요. 
+    피그마에서 21일까지 제출할 페이지 레이아웃 제작 해보세요. 
+    빨리 제작된 사람은 코드 제작해도 상관 없습니다. 
+    메인 페이지가 아니어도 상관 없어요
+
+    호텔의 메뉴는 직접 제작해보세요. 
+--> 
+ 

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+        .circle-container {
+            width: 500px;
+            position: relative;
+            border: 1px solid black;
+            height: 20px;
+            margin: auto;
+        }
+
+        .circle {
+            width: 100%;
+            left: 100%;
+            position: absolute;
+            animation: circleScale 5s infinite;
+        }
+
+        .circle1 {
+            background-color: pink;
+            animation-delay: 0;
+        }
+
+        .circle2 {
+            background-color: skyblue;
+            animation-delay: 3s;
+        }
+
+        .circle3 {
+            background-color: lightgreen;
+            animation-delay: 6s;
+        }
+
+        @keyframes circleScale {
+            0% {
+                left: 100%;
+            }
+
+            30% {
+                left: 0%;
+            }
+
+            70% {
+                left: 0%;
+            }
+
+            100% {
+                left: -100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="circle-container">
+        <div class="circle circle1"> ANIMATION </div>
+        <div class="circle circle2"> TRANSFORM </div>
+        <div class="circle circle3"> BLACKFRIDAY </div>
+    </div>
+</body>
+
+</html>
+
+<!-- 
+    https://git-scm.com/
+    형상관리(버전관리)
+
+    사용방법 : GUI, CUI(TUI)
+    리눅스 명령어 체계를 따름
+    
+    VSCODE :  CTRL  + `( BACKTIC );
+    md : 
+    cd : 
+    rd : 
+
+    git status : 깃이 현재 상태확인.
+    git init 
+    ls -a : 전체 올리기
+
+    git add .  : 버전 관리 (파일 추가)
+    >> git add 파일이름
+
+    git commit -m '설명 '
+    git log : 커밋 확인
+
+    // 현재 내 컴퓨터에서만 버전을 관리하는 것 
+    .git : 저장함 
+ -->

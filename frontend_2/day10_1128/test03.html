@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js</title>
+</head>
+
+<body>
+
+    <pre>
+        var | let | const 변수  =  값 ( 숫자, 문자, true, false,  그룹 : 배열, 함수, 객체 )
+
+        배열 : 다량의 데이터, 인덱스와 값
+        객체 : 다량의 데이터, 키와 값을 쌍으로 저장하는 데이터
+    </pre>
+    <!-- <script>
+        const user1 = {
+            userId :'kim',
+            password : '12345',
+        }
+        const user2 = {
+            userId :'park',
+            password : '12345',
+            print : function(){
+                // java 처럼 멤버변수를 제어하는 함수
+                console.log( this.userId );
+            }
+        }
+        const board1 = { };
+        board1.checked = false; // 동적으로 데이터 생성
+        board1.indexNum = 1;  // 동적으로 데이터 생성
+
+        // const board1 = {
+        //     checked : false,
+        //     indexNum : 1,
+        // };
+
+        console.log( user1 );
+        console.log( user2 );
+        console.log( user2.userId );
+        console.log( user2['userId'] );
+        // 키값을 배열 처럼 사용할 경우 반드시 '' 필요
+
+        console.log( board1 );
+        user2.print(); // 메서드로 접근은 () 필요
+
+        // 좋은 예는 아니지만 가능
+        const user3 = {
+            'user-id' : 'you', // let user-id = 'you'
+            'pass-word' : '1234',
+            1 : 1,
+            2 : 2,
+        }
+        console.log( user3 );
+        console.log( user3['1'] );
+        user3['1'] = 'string';
+        console.log( user3['1'] );
+
+    </script> -->
+    <script>
+        const user1 = {
+            userId: 'kim',
+            password: '12345',
+        }
+
+        // console.log(user1.userId);
+        // console.log(user1['userId']);
+        // user1.phone = '010-4567-7893';
+        // console.log(user1['phone']);
+        // console.log(user1['age']);
+
+        // console.log('age' in user1); // in : key값의 유무를 확인하는 연산자
+        // console.log('userId' in user1); // in : key값의 유무를 확인하는 연산자
+
+        for (key in user1) {
+            console.log(key, user1[`${key}`]);
+            // console.log( key , user1.key  );
+            // 키속성이 user1 객체에  존재하지 않음로 사용할 수 없음 
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/reset.css">
+    <style>
+        .slider-img{ width: 500px; position: relative;}
+        .slider-img>div{ width: 100%; position: absolute;}
+        .slider-img img{ width: 100%; }
+        .slider-ctrl{ position: absolute; z-index: 99;
+            top: 30vh; 
+        }
+
+        button{ cursor: pointer;}
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <div></div>
+        <div class="slider-img">
+            <div><img src="./images/bg1.jpg" alt=""></div>
+            <div><img src="./images/bg2.jpg" alt=""></div>
+            <div><img src="./images/bg3.jpg" alt=""></div>
+            <div><img src="./images/bg4.jpg" alt=""></div>
+        </div>
+
+        <div class="slider-ctrl">
+            <button>prev</button>
+            <button>next</button>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- https://github.com/ahsor/swatch -->

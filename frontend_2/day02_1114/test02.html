@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+        .circle-container{ display: flex; 
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        .circle{ width: 50px; height: 50px;
+            border-radius: 50px;
+            animation: circleScale  1.5s infinite;
+            
+        }
+        .circle1{ background-color: pink;
+            animation-delay: 0; 
+        }
+        .circle2{ background-color: skyblue;
+            animation-delay: 0.5s; 
+        }
+        .circle3{ background-color: lightgreen;
+            animation-delay: 1s; 
+        }
+        @keyframes circleScale {
+            0%, 100%{ transform:scale(0);}
+            50%{ transform:scale(1);} 
+        }
+    </style>
+</head>
+<body>
+    <div class="circle-container">
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+        <div class="circle circle3"></div>
+    </div>
+</body>
+</html>

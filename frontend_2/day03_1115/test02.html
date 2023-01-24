@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+        section, footer{ height: 100vh;
+            background-color: antiquewhite;
+        }
+        header { height: 10vh;
+            background-color: orange;
+            position:fixed; width:100%; left:0;  top:0; 
+        }
+        .transparent{ height: 100vh; }
+        .background{ height: 100vh; width:50%; 
+            position: fixed; left:0; top:0; 
+            background-image: url(./images/pic1.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            /* 모바일에서는 실행이 되지 않을 수 있음 */
+            z-index:-1;
+        }
+
+        .slider{ height: 32px; background-color: black;
+            position: absolute;
+            width: 100%;
+        }
+        .slider>div{ width:100%; position: absolute; left: 100%; color:#fff; 
+            animation: ani 2s forwards;
+        }
+
+        @keyframes ani {
+            50%{ left: 0; }
+            100%{ left:-100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="transparent"></div>
+    <header>
+        <div class="slider">
+            <div>text</div>
+        </div>
+    </header>
+    <section></section>
+    <footer></footer>
+</body>
+</html>

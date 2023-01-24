@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>함수</h1>
+    <div>
+        function 함수 : 쓰임새가 다양 ( 함수, 메소드, 생성자함수 )
+
+        // 전역변수 => 전역함수
+        function add(){}
+        function Add(){}
+
+        add();
+        Add();
+
+        const age1 = new add(); // 생성자함수
+        const age2 = new Add(); // 생성자함수
+        => 클래스 변경해서 사용하고
+
+        const person = {
+        name:'kim',
+        age:function(){}
+        // 화살표 함수 사용할 수 없고
+        }
+
+        //화살표 함수 로컬함수처럼 사용
+    </div>
+    <script>
+        printHello('park');
+
+        function printHello(name) {
+            console.log(`Hello ${name}`);
+        }
+
+        printHello('kim');
+        printHello(); // 잘못사용할 경우 undefined;
+
+        function sum(a, b, c) {
+            let result = a + b + c;
+            console.log(`${a} + ${b} + ${c} = ${a + b + c}`);
+        }
+
+        sum(10, 20, 30);
+        sum(10, 20);
+        sum(10);
+
+        // default parameter
+        function sum2(a = 0, b = 0, c = 0) {
+            let result = a + b + c;
+            console.log(`${a} + ${b} + ${c} = ${a + b + c}`);
+        }
+        sum2(10, 20, 30);
+        sum2(10, 20);
+        sum2(10);
+
+        function printHello(name = 'unknown') {
+            console.log(`Hello ${name}`);
+        }
+
+        printHello('kim');
+        printHello();
+
+        // 나머지 파라미터
+        // 배열로 데이터를 전달 
+        function sum3(...arg) {
+            // ... : spread(전개연산자)
+            // 배열을 풀어 해친다는 것 
+            // ...arg = [10, 20, 30]
+            let result = arg[0] + arg[1] + arg[2];
+            console.log(`${result}`);
+        }
+        sum3(10, 20, 30);
+
+        // 선언문 : 실행되는 것은 아님
+        function sum4(a, b, ...arg) {
+            // ... : spread(전개연산자)
+            // 배열을 풀어 해친다는 것 
+            // ...arg = [10, 20, 30]
+
+            let result = 0;
+            for (let num = 0; num < arg.length; num++) {
+                result += arg[num];
+            }
+
+            console.log(`${a} , ${b}, ${result} , ${arg.length}`);
+        }
+        sum4(10, 20, 30, 40, 50, 60);
+        // call로 실행 
+
+        // writeHello('park'); // error
+        // 표현식
+        //const  writeHello = (name)=>{
+        const writeHello = name => {
+            // 파라미터가 한개면 () 생략할 수 있다. 
+            console.log(`Hello ${name}`);
+            // 함수  : closer
+        }
+        writeHello('kim');
+        writeHello();
+
+        const writeHello2 = () => {
+            // 파라미터가 없으면 () 생략할 수 없음
+            let name = 'park';
+            console.log(`Hello ${name}`);
+            // 함수  : closer
+            return name;
+        }
+        writeHello2('kim');
+        writeHello2();
+
+        const writeHello3 = name => { console.log(name); }
+        writeHello3('lee');
+
+        //const writeHello4 = name => { return name; }
+        const writeHello4 = name => name;
+        console.log(writeHello4('korea'));
+
+        const writeHello5 = name => console.log;
+        writeHello5('korea2');
+        // 파라미터 한개에 할일도 파라미터로 한개만 할 경우 생략가능
+    </script>
+</body>
+
+</html>

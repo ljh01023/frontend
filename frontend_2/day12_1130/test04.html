@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .accordion-container{ margin: 50px; width: 500px; }
+        .content{ height: 0; overflow: hidden;
+            background-color: antiquewhite;
+            transition:0.4s;
+        }
+        
+        .content.active{ 
+            height: 200px;
+        }
+
+        /* .bx{ transition:0.4s; }
+        .bx.active{ 
+            transform:rotate(180deg);
+        } */
+    </style>
+</head>
+<body>
+    <h1> collapse </h1>
+
+    <div class="accordion-container">
+        <h3>TITLE 1 <i class='bx bx-caret-down'></i></h3>
+        <div class="content">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus quidem iusto esse vel quia, maiores corrupti, repellendus unde fuga deleniti, voluptatum voluptatem quos! Ab, quibusdam aspernatur dignissimos laborum iure quisquam.
+        </div>
+        <h3>TITLE 2 <i class='bx bx-caret-down'></i></h3>
+        <div class="content">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus quidem iusto esse vel quia, maiores corrupti, repellendus unde fuga deleniti, voluptatum voluptatem quos! Ab, quibusdam aspernatur dignissimos laborum iure quisquam.
+        </div>
+        <h3>TITLE 3 <i class='bx bx-caret-down'></i></h3>
+        <div class="content">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus quidem iusto esse vel quia, maiores corrupti, repellendus unde fuga deleniti, voluptatum voluptatem quos! Ab, quibusdam aspernatur dignissimos laborum iure quisquam.
+        </div>
+    </div>
+
+    <script>
+        const acTitles = document.querySelectorAll('.accordion-container>h3');
+        const contents = document.querySelectorAll('.content');
+        const bxs = document.querySelectorAll('.bx');
+
+        acTitles.forEach(function(title, index){
+            title.addEventListener('click', function(){
+                contents[index].classList.toggle('active');
+                //bx.classList.toggle('active');
+
+                if( bxs[index].classList.contains('bx-caret-down')){
+                    bxs[index].classList.remove('bx-caret-down');
+                    bxs[index].classList.add('bx-caret-up');
+                }else{
+                    bxs[index].classList.add('bx-caret-down');
+                    bxs[index].classList.remove('bx-caret-up');
+                }  
+            })
+        })
+
+
+    </script>
+
+    <!-- <script>
+        acTitles[0].addEventListener('click', function(){
+                contents[0].classList.toggle('active');
+                //bx.classList.toggle('active');
+
+                if( bxs[0].classList.contains('bx-caret-down')){
+                    bxs[0].classList.remove('bx-caret-down');
+                    bxs[0].classList.add('bx-caret-up');
+                }else{
+                    bxs[0].classList.add('bx-caret-down');
+                    bxs[0].classList.remove('bx-caret-up');
+                }  
+            })
+    
+            acTitles[1].addEventListener('click', function(){
+                contents[1].classList.toggle('active');
+                //bx.classList.toggle('active');
+
+                if( bxs[1].classList.contains('bx-caret-down')){
+                    bxs[1].classList.remove('bx-caret-down');
+                    bxs[1].classList.add('bx-caret-up');
+                }else{
+                    bxs[1].classList.add('bx-caret-down');
+                    bxs[1].classList.remove('bx-caret-up');
+                }  
+            })
+            acTitles[2].addEventListener('click', function(){
+                contents[2].classList.toggle('active');
+                //bx.classList.toggle('active');
+
+                if( bxs[2].classList.contains('bx-caret-down')){
+                    bxs[2].classList.remove('bx-caret-down');
+                    bxs[2].classList.add('bx-caret-up');
+                }else{
+                    bxs[2].classList.add('bx-caret-down');
+                    bxs[0].classList.remove('bx-caret-up');
+                }  
+            })
+    </script> -->
+</body>
+</html>

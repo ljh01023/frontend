@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabs</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .tab-container {
+            width: 100%;
+        }
+
+        .tab-btns {
+            display: flex;
+        }
+
+        .tab-btns li {
+            width: 33.333333%;
+            font-size: 24px;
+            background-color: antiquewhite;
+        }
+
+        .tab-btns a {
+            display: block;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .tab-btns a span {
+            display: block;
+        }
+
+        .tab-btns li.active {
+            background-color: rgb(218, 145, 50);
+        }
+
+        .tab-content {
+            height: 300px;
+            display: none;
+        }
+
+        .tab-content:nth-child(1) {
+            background-color: orange;
+        }
+
+        .tab-content:nth-child(2) {
+            background-color: green;
+        }
+
+        .tab-content:nth-child(3) {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab-container">
+        <ul class="tab-btns">
+            <li><a href="#"><i class='bx bxs-balloon'></i><span>오디오북</span></a></li>
+            <li><a href="#"><i class='bx bxs-cheese'></i><span>밀리뷰어</span></a></li>
+            <li><a href="#"><i class='bx bxs-party'></i><span>투데이</span></a></li>
+        </ul>
+        <!-- 콘텐츠도 클릭한 번호에 해당하는 콘텐츠를 표시해보세요. -->
+        <!-- .tab-contents>.tab-content -->
+        <div class="tab-contents">
+            <div class="tab-content">
+                1. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam impedit eveniet quisquam error
+                repudiandae distinctio repellendus odit qui inventore voluptate. Doloribus beatae maxime maiores
+                assumenda ex id in accusamus tempora!
+            </div>
+            <div class="tab-content">
+                2. ipsum dolor, sit amet consectetur adipisicing elit. Aliquam impedit eveniet quisquam error
+                repudiandae distinctio repellendus odit qui inventore voluptate. Doloribus beatae maxime maiores
+                assumenda ex id in accusamus tempora!
+            </div>
+            <div class="tab-content">
+                3. dolor, sit amet consectetur adipisicing elit. Aliquam impedit eveniet quisquam error repudiandae
+                distinctio repellendus odit qui inventore voluptate. Doloribus beatae maxime maiores assumenda ex id in
+                accusamus tempora!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tabContents = document.querySelectorAll('.tab-content');
+        const tabBtns = document.querySelectorAll('.tab-btns>li');
+        // nodeList : 유사배열( 배열과 비슷함 )
+        // 인덱스를 가지고 있고 순차적(이터러블 interable): 자료를 반복할수 있는 객체
+
+        console.log(tabBtns);
+        console.log(tabContents);
+
+        // 함수 안에서 또다른 함수를 계속 반복해서 호출 : 꼬임현상 발생할 가능성 높음
+        // callback hell
+        tabBtns.forEach(function (tabBtn, i) {
+            tabBtn.addEventListener('click', function () {
+                for (tab of tabBtns) {
+                    tab.style.backgroundColor = 'antiquewhite';
+                    // 모든 버튼의 색을 원래대로 바꾸어둠 
+                }
+
+                for (tabContent of tabContents) {
+                    tabContent.style.display = 'none';
+                }
+
+                // 클릭한 버튼만 색을 달리 표시함 
+                //tabBtn.style.backgroundColor =  'rgb(218, 145, 50)';
+                tabBtns[i].style.backgroundColor = 'rgb(218, 145, 50)';
+                tabContents[i].style.display = 'block';
+            })
+        })
+    </script>
+</body>
+
+</html>

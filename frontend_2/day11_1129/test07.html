@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabs</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .tab-container{ width: 100%;  }
+        .tab-btns{  display: flex; }
+        .tab-btns li{  width:33.333333%; 
+            font-size: 24px;
+            background-color: antiquewhite;
+        }
+        .tab-btns a{  display: block; text-align: center;
+            padding: 10px 0; 
+        }
+        .tab-btns a span{  display: block; }
+
+        .tab-btns li.active{   
+            background-color: rgb(218, 145, 50);
+        } 
+        
+        .tab-content{ height: 300px; display: none;}
+        .tab-content:nth-child(1){ background-color: orange;}
+        .tab-content:nth-child(2){ background-color: green;}
+        .tab-content:nth-child(3){ background-color: blue;}
+
+        .tab-content.active{ display:block; }
+    </style>
+</head>
+<body>
+     <h1> class  이용하기 </h1>
+
+     <div>
+        // tabBtn.className = 'active';
+        // tabBtn.className = '';
+        // 원래 있던 클래스 목록을 지우고 새로운 클래스 추가 
+        tabBtn.classList.add('active');
+        // 기존의 클래스 목록 뒤에 새로운 클래스 추가
+        tabBtn.classList.remove('test');
+        tabBtn.classList.toggle('test');
+     </div>
+     
+     <div class="tab-container">
+        <ul class="tab-btns">
+            <li class="test"><a href="#"><i class='bx bxs-balloon'></i><span>오디오북</span></a></li>
+            <li class="test"><a href="#"><i class='bx bxs-cheese'></i><span>밀리뷰어</span></a></li>
+            <li class="test active"><a href="#"><i class='bx bxs-party'></i><span>투데이</span></a></li>
+        </ul>
+        <!-- 콘텐츠도 클릭한 번호에 해당하는 콘텐츠를 표시해보세요. -->
+        <!-- .tab-contents>.tab-content -->
+        <div class="tab-contents">
+            <div class="tab-content">
+                1. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam impedit eveniet quisquam error repudiandae distinctio repellendus odit qui inventore voluptate. Doloribus beatae maxime maiores assumenda ex id in accusamus tempora!
+            </div>
+            <div class="tab-content">
+                2. ipsum dolor, sit amet consectetur adipisicing elit. Aliquam impedit eveniet quisquam error repudiandae distinctio repellendus odit qui inventore voluptate. Doloribus beatae maxime maiores assumenda ex id in accusamus tempora!
+            </div>
+            <div class="tab-content active">
+                3. dolor, sit amet consectetur adipisicing elit. Aliquam impedit eveniet quisquam error repudiandae distinctio repellendus odit qui inventore voluptate. Doloribus beatae maxime maiores assumenda ex id in accusamus tempora!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const  tabContents = document.querySelectorAll('.tab-content');
+        const  tabBtns = document.querySelectorAll('.tab-btns>li');
+        
+
+        // 무한 루프 끄기 
+        tabBtns.forEach(function(tabBtn, i){
+            tabBtn.addEventListener('click', function(){
+                // clearInterval(timer);
+                // 시간을 끄고
+
+                 for(btn of tabBtns){
+                    btn.classList.remove('active');
+                 }
+                 for( content of tabContents){
+                    content.classList.remove('active');
+                 }
+                 tabBtns[i].classList.add('active');
+                 tabContents[i].classList.add('active');
+            })
+        })
+     
+        let tabNum = 0;
+        // 무조건 애니메이션 동작을 넣는 것  
+        tabBtns[tabNum].click();
+        //setInterval(callback, 3000)
+        // let timer = setInterval( tabActiveHandler, 3000)
+
+        function tabActiveHandler(){
+            tabNum++;
+            console.log( tabNum, tabNum%3 )
+            tabBtns[tabNum%3].click();
+            // if( tabNum>=2 ) tabNum = 0; // 0 1 2 0 1 2 0 1 2
+        }
+
+        // document.querySelector('h1').addEventListener('mouseleave', function(){
+        //     timer = setInterval( tabActiveHandler, 3000);
+        // }) 
+
+        // document.querySelector('h1').addEventListener('click', function(){
+        //     clearInterval(timer);
+        //     console.log('timeout');
+        // })
+
+        // setInterval ()
+        // slider 돌릴대 넣을께요. 
+    </script>
+</body>
+</html>

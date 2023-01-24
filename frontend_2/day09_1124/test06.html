@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1> 제어문 </h1>
+    <div>
+        <pre>
+            // 3항 연산자
+            (조건식) ?  true : false; 
+
+            // 처리할일이 2가지
+            if( 조건식 ){
+                조건식이 true이면 실행
+            }else{
+                조건식이  false 이면 실행
+            }
+
+            // 처리할 일은 한개 : 할까말까
+            if( 조건식 ){
+                조건식이 true이면 실행
+            }
+
+            // 처리할일이 여러개 중 선택
+            if( 조건식1 ){
+                조건식1이 true이면 실행
+            }else if(조건식2 ){
+                조건식1이  false , 조건식2가  true이면 실행
+            }else if(조건식n ){
+                조건식n-1이  false , 조건식n가  true이면 실행
+            }else{
+                모든 조건식이  false이면 실행
+            }
+        </pre>
+    </div>
+    <h1>test</h1>
+    <h1>test</h1>
+    <h1>test</h1>
+    <!-- <script>
+        // 함수 기본형 암기  => 화살표 함수 
+        // 제어문 기본형 암기
+        // 선택자 // 연산자
+
+        const h1 = document.querySelector('h1');
+        // 여러개라도 맨처음 h1만 사용 
+        const h1s = document.querySelectorAll('h1');
+        console.log( h1);
+        console.log( h1s ); // 배열 비슷 = 유사배열
+    </script> -->
+
+    <!-- <script>
+        let num1 = 10; // 전지역에서 사용할 수 있는 전역변수
+        {
+            let num2 = 20; 
+            console.log( 'before :', num1, num2);
+            {
+                let num3 = 30;
+                console.log( 'before :', num1, num2, num3);
+            }
+            console.log( 'after :', num1, num2 ); 
+            // num3 삭제 : 
+        }
+        console.log( 'after : ', num1 );
+        //  num2 삭제
+    </script> -->
+
+    <!-- <script>
+        let num = parseInt(Math.random() * 100);
+        console.log( num ) ;
+
+        if( num > 50 ){
+            console.log( '50보다 큼');
+        }else{
+            console.log('50보다 작음');
+        }
+
+        let bigData = num>50 ? num : 50;
+        console.log( bigData );
+    </script> -->
+    <script>
+        let jumsu = parseInt(Math.random() * 110);
+        console.log( jumsu ) ;
+
+        let grade = null; 
+        if( jumsu >= 0 && jumsu<=100){
+            if( jumsu >= 90 ){
+                grade = 'A' ;
+            }else if( jumsu >=80) {
+                grade = 'B' ;
+            }else if( jumsu >=70) {
+                grade = 'C' ;
+            }else if( jumsu >=60) {
+                grade = 'D' ;
+            }else {
+                grade = 'F' ;
+            }
+        }
+        console.log( 'if : ' , grade);
+
+        if( jumsu >= 0 && jumsu <= 100){
+            let bigData = jumsu>=90 ? 'A' : jumsu>=80 ? 'B' : jumsu>=70 ? 'C' : jumsu>=60 ? 'D' : 'F';
+            console.log( '3항 : ',  bigData );
+        }
+        
+    </script>
+</body>
+</html>

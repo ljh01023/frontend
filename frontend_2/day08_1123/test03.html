@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+
+    </style>
+    <script defer src="./script/script03.js"></script>
+    <!-- 모듈 = 함수 = file : 자바스크립트 프로그래밍 그룹 -->
+</head>
+<body>
+    <h1> 데이타 타입 </h1>
+    <div>
+        <h2> 낱개 데이터 </h2>
+        <pre>
+            숫자(실수)
+            문자열
+            undefined
+            NaN 
+            Null
+            true, false
+        </pre>
+        <h2> 데이터 그룹 </h2>
+        <pre>
+            배열
+            함수
+            객체
+            클래스
+        </pre>
+    </div>
+    <h1> 변수 : 메모리상 기억공간 </h1>
+    <div>
+        <pre>
+            var, let, const 
+
+            var  변수의 중복 방지하지 못함 
+            let  변수의 중복을 방지하는 기능을 함
+        </pre>
+    </div>
+    <div>
+        한줄에 여러개의 명령을 사용할 때는 반드시  각각의 명령을 구분하기 위해 ; 필요
+        명령어 하나가 끝나면 반드시 ;  붙이도록 하세요.
+
+        컴파일 (프로그래밍제작 => 기계어로 변환) : 기계종속적
+        js
+        인터프리터 ( 한줄씩 실시간 처리 ) : 에러가 나면 멈춤 
+        객체지향적 프로그래밍 언어
+    </div>
+    <script>
+        // var  user = 'hong';
+        // // 변수 (variable) = 상수(데이타, 리터럴)
+
+        // var  user = 1234;  // 1234.0
+
+        let  user = 'kim';  console.log (user);   user = 1234; 
+        console.log(user);
+        user  = null;  // 정의된것 값이 없음
+        console.log(user);
+
+        let  age;  console.log( age ); // 정의안된 것
+
+        age = 30; 
+        console.log( age ); 
+
+        // 변수명을 만들때는 저장할 데이터의 의미를 이름에 포함하는 것이 바람직
+        // 대소문자를 구분 , 단어를 섞어 사용할때는  카멜케이스 사용
+        // 카멜케이스(단어의 첫글자만 대문자)
+        let USER ;
+        let user1, user2, user3;
+        let userData; 
+
+        // 클래스를 정의 클래스명이 필요 : 파스칼 케이스 
+        // User, UserData
+
+        const PIE = 3.14159221464; // 별명을 지정하는 것과 같음 
+        // 상수의 또 다른 이름 
+        console.log(PIE);
+        //console.log(PIE);
+        // PIE = 10; 
+        // 한번 지정되면 새로운 값으로 재정의 할 수 없음
+        const  alias = PIE; 
+        // constant 의 새로운 이름을 지정하는 것은 가능
+        console.log( alias);
+    </script>
+    
+</body>
+</html>

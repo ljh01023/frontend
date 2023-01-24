@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1> 연산자 </h1>
+    <div>
+        <pre>
+            산술연산자 : +, -, *, /, % : 연산 결과는 숫자
+
+            3으로 나눈 경우 나머지 값의 경우의 수는? 
+            0 1 2 
+        </pre>
+        <pre>
+             비교연산자 : > < >=  <=  == !=  ===  !==
+             연산결과가  true, false
+
+             ==, !=  : 값만을 비교, 데이터 타입은 비교하지 않음 
+             ===, !==  : 값 , 데이터 타입을 모두 비교
+        </pre>
+        <pre>
+            논리연산자 : &&(and), ||(or), !(not)
+                        &,       |, 
+            연산의 결과는   true, false
+
+            true &&  true  = true
+            true &&  false  = false
+            false && true   = false
+            false && false  = false
+
+            true  &  true  = true
+            true  &  false  = false
+            false &  true   = false // 뒷처리 연산을 하지 않음 
+            false &  false  = false
+
+            
+            true ||  true  = true
+            true ||  false  = true
+            false || true   = true
+            false || false  = false
+
+            true  |  true  = true  // true 이후의 처리를 하지 않음
+            true  |  false  = true
+            false |  true   = true    
+            false |  false  = false
+
+        </pre>
+        <pre>
+            true : 0이 아닌 숫자, 10, -10, 246, 문자열 , 'A' , 'javascript'
+
+            false : 0, undefined, null, NaN(Not a Number)
+        </pre>
+    </div>
+    <script>
+          // javascript 연산처리 
+          // && 뒤처리 사용하기 위함
+          console.log( 'string' && 'dog' );
+          // 'dog'
+          // || 앞처리를 하기 위함 
+          console.log( 'string' || 'dog' );
+          // 'string'
+    </script>
+</body>
+</html>

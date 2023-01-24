@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1> 제목 </h1>
+    <script>
+        // javascript : backend(nodejs) 서버 => express 
+        let  num1 = 1; 
+        let  num2 = 2; 
+        let  num3 = 3; 
+
+        // 회원이 10만 구독 => 수익
+        const nums = [1,2,3];
+        nums.push(4);
+        nums.push(5);
+
+        num1 = 'string';
+        // nums = ['a']; //error
+        nums[0] = 'arys';
+        
+        console.log( num1 );
+        console.log( nums );
+        console.log( nums[0] );
+        // console.log( nums[1] );
+        // console.log( nums[2] );
+        // console.log( nums[3] );
+
+        for( let a = 0 ; a < nums.length ; a++ ){
+            // 처리회수를 제어하기 위함 
+            console.log( nums[a] );
+        }
+        
+        for( let a = nums.length - 1 ; a >= 0 ; a-- ){
+            // 처리회수를 제어하기 위함 
+            console.log( nums[a] );
+        }
+        
+        // for ~ of 
+        const reversArys = [];
+        let reNum = nums.length - 1 ;
+        let count = 0;
+        /*
+            0 = 5  length = 5 - 0 = 5
+            1 = 4           5 - 1   4
+            2 = 3           5 - 2   3
+            3 = 2           5 - 3   2
+            4 = 1           5 - 4   1
+            5 = 0           5 - 5   0
+        */
+
+        for( num of nums){
+            console.log(num);
+            reversArys[reNum - count] = num; 
+            count++;
+        }
+
+        console.log('my : ', reversArys );
+        console.log('js : ',  nums.reverse());
+
+        const myRevAry = [];
+        nums.forEach(function(num, count){ 
+             // 첫 : 낱개, 두 : index // 이름은 맘대로
+             myRevAry[reNum - count] = num;
+        })
+        console.log( 'forEach : ', myRevAry);
+    </script>
+</body>
+</html>

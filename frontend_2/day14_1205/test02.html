@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <h1>배열</h1>
+    <div>
+        배열API 좀더 섬세히 개발이 되어 있음 
+        배열은 연속적인 메모리에 들어가는 자료 구조
+        filter(callback)
+        map(callback) : 값자체를 리턴하거나 값을 조작
+        reduce(callback)
+    </div>
+     
+    <script>
+         const arys = [11, -2, 30,-44, 95, 106, 7];
+
+         const num2 = [];
+         for(ary of arys){
+            num2.push( ary*2 );
+         }
+         console.log(num2);
+
+         const num1 = arys.map((num)=>{ return num * 2});
+         console.log(num1);
+          
+         const num3 = arys.map(num =>num * 2);
+         // callback에서 전달파라미터가 1개면 ()생략가능, 파라미터가 없으면 () 생략할 수 없음
+         // callback안에서 하는 일이 return 1개면 return 생략, {}도 생략할 수 있다.
+         console.log(num3);
+          
+         const num4 = arys.map(num => num + 2);
+         console.log(num4);
+
+         function addNum(num){
+            return num + 2;
+         }
+      //    const num5 = arys.map(addNum);
+      //    console.log(num5);
+
+      //    const snacks = ['새우깡',  '꿀과빼기', '콘칩', '감자깡', '포테이토칩', '에이스', '참크리커'];
+
+      //    const students =[
+      //       {id:1, name:'kim', age:30},
+      //       {id:2, name:'park', age:23},
+      //       {id:3, name:'lee', age:22},
+      //       {id:4, name:'you', age:33},
+      //    ]
+      //    const studentNames = [];
+      //    for( student of students){
+      //       studentNames.push(student.name);
+      //    }
+      //    console.log( studentNames );
+
+      //    const names = students.map( student => student.name );
+      //    console.log(names);
+          
+
+      //    const aryTwo = [[1,2,3], [4,5,6], [7,8,9]];
+      //    const result5 = aryTwo.map( ary => {
+      //       // console.log(ary);
+      //       ary.map( a => console.log(a*2) );
+      //   });
+
+      //   //console.log( result5);
+    </script>
+</body>
+</html>

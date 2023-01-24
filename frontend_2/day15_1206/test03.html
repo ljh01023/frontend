@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+        th:last-child, 
+        td:last-child{ width: 100px; text-align: center;} 
+    </style>
+</head>
+<body>
+    <h1> 견적서 </h1>
+    <table>
+        <thead>
+            <tr>
+                <th>옵션</th>
+                <th>가격</th>
+                <th>선택</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>인조가죽시트</td>
+                <td>250000</td>
+                <td><input type="checkbox" value="250000" id="option1"  class="option"></td>
+            </tr>
+            <tr>
+                <td>내비게이션</td>
+                <td>800000</td>
+                <td><input type="checkbox" value="800000" id="option2"  class="option"></td>
+            </tr>
+            <tr>
+                <td>썬루프</td>
+                <td>550000</td>
+                <td><input type="checkbox" value="550000" id="option3"  class="option"></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>기본차량가격</td>
+                <td colspan="2">20400000</td> 
+            </tr>
+            <tr>
+                <td>옵션선택 추가 가격</td>
+                <td colspan="2" class="result">0</td> 
+            </tr>
+        </tfoot>
+    </table>
+    <script>
+        // 총합을 저장할 변수 
+        // 체크가 되면 합산, 체크해제하면 제외
+        // 숫자를 표기하는 방법
+
+        const options = document.querySelectorAll('.option');
+        let result = 0;
+
+        // for( option of options ){
+        //     option.addEventListener('click' , function(event){
+        //         //option.checked = !option.checked;
+                
+        //         let target = event.target;
+
+        //         console.log( target.checked );
+        //         if( target.checked ){
+        //             result += parseInt(target.value);
+        //         }else{
+        //             result -= parseInt(target.value);
+        //         }
+            
+        //         document.querySelector('.result').innerHTML = result;
+        //     })
+        // }
+
+        options.forEach( function(option, index){
+            option.addEventListener('click' , function(){ 
+                 console.log( option.checked );
+                 if( option.checked ){
+                     result += parseInt(option.value);
+                 }else{
+                     result -= parseInt(option.value);
+                 }
+             
+                 document.querySelector('.result').innerHTML = result;
+             })
+        }) 
+
+        // for~of : 각각 배열을 같은 위치를 표시 할 수 있음, 오류 발생 확률있음
+    </script>
+</body>
+</html>

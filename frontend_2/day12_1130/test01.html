@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{ background-color: red;}
+        /* 클래스 많아지면 이름을 만드는 스트레스  */
+
+        li .active{ background-color: skyblue;}/*1 : 직계, 자손 선택자*/
+        li>.active{ background-color: skyblue;} /* 자식, 2 */
+        li.active{ background-color: skyblue;}  /*3*/
+
+        /* a   .active{ background-color: orange;}
+        a>.active{ background-color: orange;} */
+        a.active{ background-color: orange;}
+    </style>
+</head>
+<body>
+     <ul>
+        <li class="active">리스트</li>        <!-- 3 -->
+        <li><span class="active"><a href="#"><i>이텔릭</i></a></span></li>
+         <!-- 1 , 2 -->
+        <li><span><a href="#"  class="active"><i>이텔릭</i></a></span></li>
+        <!-- 1 -->
+        <li><span><a href="#"  class="active"><i  class="active">이텔릭</i></a></span></li>
+        <!-- 1 -->
+     </ul>
+     <a href="#" class="active">링크</a>
+     <div class="active">한글은</div>
+     <h1 class="active">제목</h1>
+</body>
+</html>

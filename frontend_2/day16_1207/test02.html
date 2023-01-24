@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{ width: 50px; height: 50px;}
+    </style>
+</head>
+<body>
+    <h1> 계산기 </h1>
+    <input type="number" value="0" min="0" max="100" id="num1">
+    <!-- <select name="operator" id="operator">
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+        <option>/</option>
+        <option>%</option>
+    </select> -->
+    <input type="text"  name="operator" id="operator">
+    <!--  -->
+    <input type="number" value="0" min="0" max="100" id="num2">
+    <!-- 
+        입력을  number 로 입력해도  html  처리되는 대부분의 데이터는 문자
+     -->
+    <button id="resultBtn"> = </button>
+    <input type="text" id="resultValue" value="0">
+
+    <script>
+        const resultValue = document.querySelector('#resultValue');
+        const resultBtn = document.querySelector('#resultBtn');
+        resultBtn.addEventListener('click', ()=>{
+            const num1 = document.querySelector('#num1').value;
+            const num2 = document.querySelector('#num2').value;
+            const operater = document.querySelector('#operator').value;
+
+            console.log( num1, num2, operater );
+
+            if( isNumber( num1) && isOperater(operater) && isNumber(num2)){
+                resultValue.value = selectOperator( parseInt(num1), operater, parseInt(num2) );
+            }else{ 
+                console.log('잘못된 데이터 입력'); 
+                return 'NaN';
+            }
+            
+        })
+
+        const isNumber = (number)=>{
+            return  !isNaN(parseInt(number));
+        }
+        const isOperater = (op)=>{
+            return  '+-*/%'.indexOf(op) !== -1;
+            // indexOf는 배열을 처리하는 것과 같으므로 
+            // 0이상의 인덱스를 사용하므로 -1은 찾는 값이 존재하지 않음
+        }
+        const selectOperator = (  num1, op, num2 )=>{
+            // num1 = num1, op = operater, num2 = num2
+            let result = 0;
+            switch( op ){
+                case '+': result = num1 + num2; break; 
+                case '-': result = num1 - num2; break; 
+                case '*': result = num1 * num2; break; 
+                case '/': result = num1 / num2; break; 
+                case '%': result = num1 % num2; break; 
+                default : result = 'not operator'
+            }
+            return result; 
+        }
+    </script>
+</body>
+</html>

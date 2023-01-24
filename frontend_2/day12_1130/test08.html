@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .accordion-container {
+            margin: 50px;
+            width: 500px;
+        }
+
+        .content {
+            height: 0;
+            overflow: hidden;
+            background-color: antiquewhite;
+            transition: 0.4s;
+        }
+
+        h3 {
+            padding: 10px;
+        }
+
+        h3.active {
+            background-color: bisque;
+        }
+
+        .content.active {
+            height: 200px;
+        }
+
+        /* .bx{ transition:0.4s; }
+        .bx.active{ 
+            transform:rotate(180deg);
+        } */
+    </style>
+</head>
+
+<body>
+    <h1> collapse </h1>
+
+    <div class="accordion-container">
+        <h3>TITLE 1 <i class='bx bx-caret-down'></i></h3>
+        <div class="content">
+            1 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus quidem iusto esse vel quia, maiores
+            corrupti, repellendus unde fuga deleniti, voluptatum voluptatem quos! Ab, quibusdam aspernatur dignissimos
+            laborum iure quisquam.
+        </div>
+        <h3>TITLE 2 <i class='bx bx-caret-down'></i></h3>
+        <div class="content">
+            2 ipsum dolor, sit amet consectetur adipisicing elit. Delectus quidem iusto esse vel quia, maiores corrupti,
+            repellendus unde fuga deleniti, voluptatum voluptatem quos! Ab, quibusdam aspernatur dignissimos laborum
+            iure quisquam.
+        </div>
+        <h3>TITLE 3 <i class='bx bx-caret-down'></i></h3>
+        <div class="content">
+            3 dolor, sit amet consectetur adipisicing elit. Delectus quidem iusto esse vel quia, maiores corrupti,
+            repellendus unde fuga deleniti, voluptatum voluptatem quos! Ab, quibusdam aspernatur dignissimos laborum
+            iure quisquam.
+        </div>
+    </div>
+
+    <script>
+        // 이벤트 위임
+        const accordion = document.querySelector('.accordion-container');
+        let currentActive;
+
+        accordion.addEventListener('click', accActiveHandler);
+        function accActiveHandler(event) {
+            //console.log('click');
+
+            if (currentActive) {
+                currentActive.classList.remove('active');
+                currentActive.nextElementSibling.classList.remove('active');
+                currentActive.firstElementChild.classList.add('bx-caret-down')
+                currentActive.firstElementChild.classList.remove('bx-caret-up')
+            }
+
+            let title = event.target;
+            console.log(title);
+
+            title.classList.add('active');
+            title.nextElementSibling.classList.add('active');
+            title.firstElementChild.classList.remove('bx-caret-down');
+            title.firstElementChild.classList.add('bx-caret-up');
+
+            currentActive = title;
+        }
+    </script>
+
+    <!-- 
+        tab 수정하긴 했지만 현재 버전으로 만들어 보세요. 
+        i를 클릭했을때 처리 필요함 
+     -->
+</body>
+
+</html>

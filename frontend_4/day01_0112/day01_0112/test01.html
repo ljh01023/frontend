@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pagenation</title>
+    <style>
+        *{ margin:0; padding: 0;}
+        li{ list-style-type: none;}
+
+        .patenation-container{ 
+            padding:  20px;
+        }
+        .pagenation{ display: flex; gap: 5px;}
+        .pagenation li{ width: 25px; height: 25px; text-align: center; line-height: 25px;
+            border: 1px solid black;
+        }
+        .pagenation li.active{ 
+            background-color: black;
+            color:#fff; 
+        }
+
+        .table-container table{
+            border-collapse: collapse;
+            width: 100px;
+        }
+        
+        .table-container th,
+        .table-container td{
+            border:1px solid black; 
+            height: 40px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>index</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td>값</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+    <div class="patenation-container">
+        <div id="prev">prev</div>
+        <ul class="pagenation">
+            <!-- <li>1</li>
+            <li>2</li>
+            <li>4</li>
+            <li>5</li> -->
+        </ul>
+        <div id="next">next</div>
+    </div>
+    <!-- 
+        1. 전체 목록의 개수 
+        2. 페이지당 표현 개수 
+        3. 페이저 개수
+        4. 시작인덱스, 끝인덱스 
+        * 데이터는 0 인덱스, 표현되는 인덱스는 1부터
+     -->
+    <script>
+        const ary = [];
+        for( let a = 1 ; a<=20 ; a++){
+            ary.push(a);
+        }
+
+        let pagePerCount = 5;
+        let pagers = Math.ceil(ary.length / pagePerCount);
+        let currentPage = 1; 
+        let startIndex = (currentPage - 1) * pagePerCount;
+        let endIndex =  currentPage * pagePerCount; 
+
+        //console.log(`pagers : ${pagers}, currentPgae : ${currentPage}, startIndex : ${startIndex}`)
+        const pagention = document.querySelector('.pagenation');
+        for(let a = 1;  a<= pagers ; a++){
+            let li = document.createElement('li');
+            li.classList.add('list');
+            li.innerHTML = a; 
+            //console.log( li );
+            if( currentPage === a) li.classList.add('active');
+            li.addEventListener('click', currentPageHandle );
+            pagention.appendChild(li);
+        }
+
+        const lists = document.querySelectorAll('.list');
+
+        function currentPageHandle(){
+            console.log(this.innerHTML);
+            lists.forEach( list=> list.classList.remove('active'));
+            this.classList.add('active');
+
+            currentPage = Number(this.innerHTML);
+            startIndex = (currentPage - 1) * pagePerCount;
+            endIndex =  currentPage * pagePerCount;
+            repeatDom(); 
+        }
+
+        const tbody = document.querySelector('.table-container tbody');
+        repeatDom(); 
+        function repeatDom(){
+            const viewTr = ary.slice(startIndex, endIndex);
+           // console.log( viewTr );
+            tbody.innerHTML = '';
+            for( tr of viewTr ){
+                createDom( tr );
+            }
+        }
+        function createDom(data){
+            // <tr>
+            //         <td>값</td>
+            //     </tr>
+
+            const tr = document.createElement('tr');
+            const td = document.createElement('td');
+            td.innerHTML = data; 
+            tr.appendChild(td);
+            tbody.appendChild(tr);
+        }
+
+        next.addEventListener('click', function(){
+            if( currentPage === pagers) return; 
+            currentPage++;
+            startIndex = (currentPage - 1) * pagePerCount;
+            endIndex =  currentPage * pagePerCount;
+            console.log( currentPage );
+
+            lists.forEach( list=> list.classList.remove('active'));
+            lists[currentPage - 1].classList.add('active');
+            repeatDom(); 
+        })
+
+        prev.addEventListener('click', function(){
+            if( currentPage === 1) return; 
+            currentPage--;
+            startIndex = (currentPage - 1) * pagePerCount;
+            endIndex =  currentPage * pagePerCount;
+            console.log( currentPage );
+
+            lists.forEach( list=> list.classList.remove('active'));
+            // lists[pagers - currentPage].classList.add('active');
+            console.log(pagers - currentPage);
+            // 4 3 2 1
+            // 4 - 4 = 0
+            // 4 - 3 = 1
+            // 4 - 2 = 2
+            repeatDom(); 
+        })
+    </script>
+</body>
+</html>

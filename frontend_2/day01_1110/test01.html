@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        float layout 제작은 과제 
+        flex 로 제작 
+     -->
+     <link rel="stylesheet" href="../style/reset.css">
+     <style>
+        header{ width:15%; height:100vh; 
+            background-color: rgba(255, 255, 0, 0.48); 
+            position: fixed;
+        }
+        nav{ width:85%; height: 30px; background-color: black;
+            margin-left:15%;
+        }            
+        section{ width:85%; height: 100vh; background-color: pink;
+            margin-left:15%;
+        }    
+        
+        @media screen  and  (max-width:1600px) {
+            header{ position:static; width:100%; height: 100px;}
+            nav{ margin-left:0; width:100%;}
+            section{ margin-left:0; width:100%;}
+        }
+
+        @media screen  and  (max-width:640px) {
+            nav{ display:none; } 
+        }
+     </style>
+</head>
+<body>
+    <header></header>
+    <nav></nav>
+    <section></section>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/reset.css">
+    <style>
+        body{ height: 100vh;
+              background: linear-gradient(90deg, pink  50%, rgba(255, 192, 203, 0.107) 0 );
+              background-size: 10px;
+              /* background-repeat: repeat-x; */
+        }
+
+        .container{ width:1200px; height: 3000px;
+            background-color: white;
+            margin: auto;
+        }
+
+        header{ height: 240px; background-color: yellow;
+            display: flex;
+            align-items: flex-end;
+            /* 
+                position , bottom
+            */
+        }
+        nav{ width:100%;  height: 40px; background-color: darkcyan;}
+        .top-section{ display: flex;}
+        .top-section .content01{ width: 45%; }
+        .top-section .content02{ width: 55%; background-color: pink; }
+        /* strech flex 형제레벨끼리 높이를 자동으로 맞추는 기능, 
+           wrap 로 탈락되는 순간 형제가 아니므로 높이가 사라진다.  */
+
+        .contents{ display: flex; gap: 10px;}
+        .contents>div{ width: 25%; height: 250px;background-color: yellow;}
+
+        @media screen and ( max-width: 1250px) {
+            .container{ width:98%; }
+        }
+        @media screen and ( max-width: 1000px) {
+            .top-section .content01{ width: 50%; }
+            .top-section .content02{ width: 50%; }  
+            .contents{ flex-wrap: wrap;}
+            .contents>div{ width: calc(50% - 5px);} 
+            /* 좌우 나란히 있는 형제들이 존재할 때  gap 너비 신경 써야 함  */
+        }
+        @media screen and ( max-width: 670px) {
+            .top-section{ flex-wrap: wrap ;}
+            .top-section .content01{ width: 100%; }
+            .top-section .content02{ width: 100%; } 
+            .contents>div{ width: 100%;}  
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav></nav>
+        </header>
+        <section class="top-section">
+            <div class="content01">
+                <img src="./images/shop.png" alt="">
+            </div>
+            <div class="content02">test</div>
+        </section>
+        <section class="btm-section">
+            <div class="contents">
+                <div class="content01 info-content"></div>
+                <div class="content02"></div>
+                <div class="content03"></div>
+                <div class="content04"></div>
+            </div>
+        </section>
+        <footer></footer>
+    </div>
+</body>
+</html>

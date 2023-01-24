@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h1> 제목 </h1>
+    <button class="printBtn">JSON data  print</button>
+    <button class="removeBtn">localStorage remove </button>
+    <div>
+        JSON  DATA
+        { "name" : "kim", "phone" : "010" }
+
+        JSON.stringify(users) ;; 문자열로 변환
+        JSON.parse(users) ;;  object로 변환
+    </div>
+    <script>
+        const btn = document.querySelector('.printBtn');
+        
+        btn.addEventListener('click', function(){
+            // console.log(JSON.parse(localStorage.getItem('users')));
+            // getter 값가져올때 (키)
+
+             const  jsonData = JSON.parse(localStorage.getItem('users'));
+             jsonData.forEach(function( d, index){
+                console.log( index, d)
+             })
+        })
+        // const removeBtn = document.querySelector('.removeBtn');
+        
+        // removeBtn.addEventListener('click', function(){
+        //      localStorage.removeItem('users');
+        // })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+        .option>input[type='radio'] {
+            display: none;
+        }
+
+        .select-container {
+            width: 300px;
+            margin: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .selected-box {
+            height: 50px;
+            line-height: 50px;
+            text-indent: 1rem;
+            background-color: cadetblue;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .selected-box::after {
+            content: '';
+            display: block;
+            width: 25px;
+            height: 25px;
+            background-image: url(./images/caret-down-square-solid-24.png);
+            background-position: center;
+            position: absolute;
+            right: 12px;
+            top: 12px;
+            /* transition: 0.4s ease-in-out; */
+        }
+
+        .select-container.active .selected-box::after {
+            /* background-image: url(./images/caret-up-square-solid-24.png); */
+            transform: rotate(180deg);
+        }
+
+        .options-container {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: 0.4s ease-in-out;
+        }
+
+        .select-container.active .options-container {
+            max-height: 240px;
+            opacity: 1;
+        }
+
+        .option {
+            height: 50px;
+            line-height: 50px;
+            text-indent: 1rem;
+            background-color: cadetblue;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background-color: rgb(24, 56, 57);
+        }
+
+        .option:nth-child(1) {
+            border-radius: 8px 8px 0 0;
+        }
+
+        .option:last-child {
+            border-radius: 0 0 8px 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="select-container">
+        <div class="selected-box">
+            지역을 선택하세요.
+        </div>
+        <!-- div, ul 로 바꾸어서 제작해 보세요. -->
+        <div class="options-container">
+            <div class="option">
+                <input type="radio" name="radio" id="option1">
+                <label for="option1">서울</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="radio" id="option2">
+                <label for="option2">부산</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="radio" id="option3">
+                <label for="option3">대구</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="radio" id="optio41">
+                <label for="option4">제주</label>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const selectedBox = document.querySelector('.selected-box');
+        const selectedContainer = document.querySelector('.select-container');
+        const optionsContainer = document.querySelector('.options-container');
+        selectedBox.addEventListener('click', () => {
+            selectedContainer.classList.toggle('active');
+        })
+
+        const options = document.querySelectorAll('.option');
+        options.forEach((option) => {
+            option.addEventListener('click', () => {
+                console.log(option);
+                let value = option.querySelector('label').innerHTML;
+                console.log(value);
+                selectedBox.innerHTML = value;
+                selectedContainer.classList.remove('active');
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div class="items-container">
+        <div class="item-box">
+            <div class="img-box"><img src="./images/img_maxim1.png" alt=""></div>
+            <div class="item-content">
+                <h3>Title</h3>
+                <div class="box">
+                    <div class="item-price" data-value="12500">
+                        12500
+                    </div>
+                    <input type="number" value="1" min="1" max="10">
+                </div>
+                <div class="button-box">
+                    <i class='bx bxs-cart'></i>
+                    <span>장바구니</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+
+    </script>
+    <script>
+        let count = 0;
+        addBtn.addEventListener('click', () => {
+            // str = `<li>${snacks[count++]}</li>`;
+            // document.querySelector('.log').innerHTML = str;
+
+            if (count < snacks.length) {
+                const li = document.createElement('li');
+                console.log(li);
+                li.innerHTML = snacks[count++];
+                document.querySelector('.log').appendChild(li);
+            } else {
+                alert('재료 소진');
+            }
+        })
+    </script>
+    <!-- 
+        global 함수 확인하기
+     -->
+</body>
+
+</html>

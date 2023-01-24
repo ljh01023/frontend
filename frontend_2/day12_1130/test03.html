@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <style>
+        .box-container{}
+        div.inner#inner{  background-color: green;}
+        /* 아이디 우선순위는 100 */
+        .outer>.inner{ background-color: pink; }
+        /* 클래스선택자 우선순위 : 10 + 10 = 20, 디자인 적용 */
+        div.inner{ background-color: skyblue;}
+        /* 우선순위  1 + 10 = 11 */
+        .inner{ background-color: orange; }
+        .inner{ background-color: blue; }
+        /* 우선순위 : 10  */
+        
+        .next{}
+        .box-container>div:nth-child(3){}
+        .prev+div+div{ background-color: skyblue;}
+        .prev~button{ background-color: black; color:white;}
+    </style> -->
+    <!-- 
+        유교 :  css 는  자식들을 제어, 동생제어하는 가능 
+        부모나 형들은 제어 불가
+        js : 누구나 제어 가능, 선택자가 자유로운 
+     -->
+</head>
+
+<body>
+    <div class="box-container on">
+        <div class="prev on">PREV</div>
+        <div class="outer">
+            <div class="inner on" id="inner">
+                <div class="center">TEXT</div>
+            </div>
+        </div>
+        <div class="next">NEXT</div>
+        <div class="sibling">sibling</div>
+        <button>last</button>
+    </div>
+
+    <ul id="list">
+        <li>list1</li>
+        <li>list2</li>
+        <li>list3</li>
+        <li>list4</li>
+        <li>list5</li>
+    </ul>
+
+    <!-- <script>
+        //const boxContainer = document.getElementsByClassName('box-container')[0];
+        const boxContainer = document.querySelector('.box-container');
+
+        const inner = boxContainer.firstElementChild.nextElementSibling.firstElementChild;
+        console.log( inner );
+    </script> -->
+
+    <!-- <script>
+        // div.inner#inner
+        const inner = document.getElementById('inner');
+        const center = inner.firstElementChild;
+        console.log( center );
+        const outer = inner.parentElement;
+        console.log( outer );
+    </script> -->
+
+    <script>
+        const prev = document.querySelector('.prev');
+        const next = prev.nextElementSibling.nextElementSibling;
+        console.log(next);
+
+        const list = document.querySelector('#list');
+        const listChild = list.children;
+        console.log(listChild);
+    </script>
+    <!-- 
+        유사배열(nodelist, htmlcollection), 배열 : 번호를 이용하여 몇번째 형제 또는 자식 지정할 수 있지만 
+        그외에 js 는 몇번째를 지정할 수 없어서 번호를 찾아서 사용해야 함 
+     -->
+</body>
+
+</html>

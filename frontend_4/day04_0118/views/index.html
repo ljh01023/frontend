@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1> views/index.html </h1>
+    <div class="log"> home </div> 
+    <button class="user">'http://localhost:3000/api/user' 요청</button>
+    <button class="users">'http://localhost:3000/api/users' 요청</button>
+
+
+    <script>
+       document.querySelector('.user').addEventListener('click', function(){
+            fetch('http://localhost:3000/api/user')
+            .then( res => res.json())
+            .then( res => {
+                console.log(res);
+                // { name : "kim", age: 40}
+                document.querySelector('.log').innerHTML = `
+                    이름 :  ${res[0].name}
+                    나이 :  ${res[0].age}
+                `
+            })
+       })
+
+       document.querySelector('.users').addEventListener('click', function(){
+            fetch('http://localhost:3000/api/users')
+            .then( res => res.json())
+            .then( res => {
+                console.log(res);
+                 
+                const ul = document.createElement('ul');
+                res.forEach( data => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <span>id : ${data.id}</span>
+                        <span>이름 : ${data.name}</span>
+                        <span>나이 : ${data.age}</span>
+                    `
+                    ul.append(li)
+                });
+
+                document.querySelector('.log').innerHTML = '';
+                document.querySelector('.log').append(ul);
+            })
+       })
+    </script>
+    <!-- 
+        GET
+
+        POST
+        PUT,PATCH
+        DELETE
+
+        https://jsonplaceholder.typicode.com/
+        https://jsonplaceholder.typicode.com/guide/
+     -->
+</body>
+</html>

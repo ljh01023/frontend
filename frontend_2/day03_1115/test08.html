@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+        body{ height: 100vh; display: flex; justify-content: center;
+            align-items: center;
+        }
+        .box-container{ width: 200px; height: 200px;
+            /* border:1px solid antiquewhite; */
+            position: relative;
+        }
+        .box{ width: 20px; height:20px; background-color: pink;
+            position: absolute;
+        }
+        .box:nth-child(2){  background-color: skyblue;
+            animation-delay: 1s; 
+        }
+        .box:nth-child(3){  background-color: lightgreen;
+            animation-delay: 2s; 
+        }
+         
+        
+        .myAni{ animation:ani 3s infinite  linear;  }
+        @keyframes  ani {
+            0%{ left: 0px; top:0;  }
+            33.3333%{ left: 90px; top: -120px;  }
+            66.6666%{ left: 180px; top:0px;  }
+            100%{ left: 0px; top:0px;  }
+        }
+    </style>
+</head>
+<body>
+    <div class="box-container">
+        <div class="box myAni"></div>
+        <div class="box myAni"></div>
+        <div class="box myAni"></div>
+        <div class="box myAni"></div>
+    </div>
+</body>
+</html>

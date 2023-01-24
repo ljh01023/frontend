@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="../style/box.css">
+    <style>
+        header,
+        footer {
+            height: 100vh;
+            background-color: antiquewhite;
+        }
+
+        section {
+            height: 500px;
+            background-image: url(./images/pic1.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            /* 모바일에서는 실행이 되지 않을 수 있음 */
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            background-image: url(./images/bn_main.png);
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <header></header>
+    <section>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </section>
+    <footer></footer>
+</body>
+
+</html>

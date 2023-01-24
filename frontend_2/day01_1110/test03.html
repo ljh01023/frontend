@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        float layout 제작은 과제 
+        flex 로 제작 
+     -->
+     <link rel="stylesheet" href="../style/reset.css">
+     <style>
+        header{ width:15%; height:100vh; 
+            background-color: rgba(255, 255, 0, 0.48); 
+            position: fixed;
+        }
+        nav{ width:85%; height: 30px; background-color: black;
+            margin-left:15%;
+        }            
+        section{ width:85%; background-color: pink;
+            margin-left:15%;
+        }    
+        article{ width:calc( 100% / 5); height: 260px; 
+                border:1px solid black;
+                float:left; 
+        }
+
+        article:nth-child(1){  width:calc(( 100% / 5) * 3); height: 520px;  }
+        article:nth-child(2){  width:calc(( 100% / 5) * 2);    }
+        article:nth-child(6){  width:calc(( 100% / 5) * 2);    }
+        article:nth-child(9){  width:calc(( 100% / 5) * 2);    }
+
+        @media screen  and  (max-width:1600px) {
+            header{ position:static; width:100%; height: 100px;}
+            nav{ margin-left:0; width:100%;}
+            section{ margin-left:0; width:100%;}
+        }
+
+        @media screen  and  (max-width:1279px) {
+            article{ width:calc( 100% / 4); }
+            /* 전체 article 너비 기본도 바뀜 */
+            article:nth-child(1){  width:calc(( 100% / 4) * 3);    }
+            article:nth-child(2){  width:calc(( 100% / 4));    }
+            article:nth-child(6){  width:calc(( 100% / 4) * 2);    }
+            article:nth-child(7){  width:calc(( 100% / 4) * 2);    }
+            article:nth-child(9){  width:calc(( 100% / 4));    }
+            article:nth-child(10){  width:calc(( 100% / 4) * 2);    }
+        }
+
+        @media screen  and  (max-width:1024px) {
+            article{ width:calc( 100% / 3); }
+            /* 전체 article 너비 기본도 바뀜 */
+            article:nth-child(1){  width:100%;   }
+            article:nth-child(2){  width:calc(( 100% / 3) * 2);    }
+            article:nth-child(5){  display:none; }
+            article:nth-child(6){  width:calc(( 100% / 3) * 2);    }
+            article:nth-child(7){  width:calc( 100% / 3 );    }
+            article:nth-child(9){  width:calc( 100% / 3);    }
+            article:nth-child(10){  width:calc( 100% / 3);    }
+        }
+        @media screen  and  (max-width:780px) {
+            nav{ display:none; } 
+            article{ width:calc( 100% / 2); }
+            /* 전체 article 너비 기본도 바뀜 */
+            article:nth-child(1){  width:100%;   }
+            article:nth-child(2){  width:100%;    }
+            article:nth-child(6){  width:100%;    }
+            article:nth-child(7){  width:calc( 100% / 2 );    }
+            article:nth-child(9){  width:calc( 100% / 2);    }
+            article:nth-child(10){  width:calc( 100% / 2);    }
+        }
+
+        @media screen  and  (max-width:480px) { 
+            header{ position: fixed; top:0; bottom:0; left:0; right:0;
+                z-index: 9;  height: auto;
+                /* max-width:1600px 높이가 고정 되어 있으므로 auto 로 바꾸면 화면 꽉찬 높이를 가짐 */
+            }
+            article{ display:none;  }
+            /* 전체 article 너비 기본도 바뀜 */
+            article:nth-child(1){ display:block;  \
+                position: fixed; width:100%; height: 100vh;  } 
+        }
+     </style>
+</head>
+<body>
+    <header></header>
+    <nav></nav>
+    <section>
+        <article>article01</article>
+        <article>article02</article>
+        <article>article03</article>
+        <article>article04</article>
+        <article>article05</article>
+        <article>article06</article>
+        <article>article07</article>
+        <article>article08</article>
+        <article>article09</article>
+        <article>article10</article>
+        <article>article11</article>
+        <article>article12</article>
+    </section>
+</body>
+</html>

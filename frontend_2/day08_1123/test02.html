@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <h1> 제목 </h1>
+    <!-- 
+        바닐라스크립트 : 클라언트단의 언어로 간단한 처리만 함 
+                        브라우저 상태에서 데이터처리
+        이크마스크립트 : 2015 이후 업그레이드 되고 있음
+                        백엔드단의 데이터처리도 가능
+                        브라우저 처리는 못함
+
+        데이타처리 : 다른 데이타타입이 없음 => 느슨한 언어     
+        
+        프로그램 처리단위 : 입력 -> 처리 -> 출력
+
+         getter : 값을 가져올때 , get
+         setter : 값을 초기화 , set
+
+        브라우저 html 문서를 읽어 DOM(html 구조) > css 디자인 
+     -->
+
+    <!-- 
+        HTML, CSS 모두 읽은 후에 처리하도록 함 
+        1. script 를 body 하단에 처리 
+        2. 
+     -->
+    <script>
+        //window.document.getElementsByTagName('h1')[0].textContent = 'title';
+        //최근방식
+        document.addEventListener('DOMContentLoaded', function () {
+            window.console.log('javascript');
+            window.document.write('한글은 아름다운 글입니다.');
+            const tt = document.getElementsByTagName('h1');
+            console.log(tt)
+            // TAG 요소는 중복사용이 가능한 요소
+        })
+    </script>
+    <!-- <script>
+        // // 전통적인 방식
+        document.onload = function () {
+            window.console.log('javascript');
+            window.document.write('한글은 아름다운 글입니다.');
+            window.document.getElementsByTagName('h1')[0].innerHTML = 'title';
+            let a = document.getElementsByTagName('h1');
+            console.log(a)
+            // TAG 요소는 중복사용이 가능한 요소
+        }
+
+
+    </script> -->
+    <!-- <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const t = document.getElementsByTagName('h1').innerHTML = 'test';
+            const t2 = document.getElementsByTagName('h1')[0];
+            
+            console.log(t2);
+            //t.innerHTML = 'TEST';
+
+        })
+    </script> -->
+</body>
+
+</html>

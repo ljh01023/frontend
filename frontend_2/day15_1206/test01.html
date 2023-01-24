@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>중복선택한 데이터 가져오기</h1>
+    <div class="form-container">
+        <div>
+            <fieldset>
+                <legend>과목을 선택하세요. (중복 선택 가능)</legend>
+                <input type="checkbox" id="html" name="html"  class="subject">
+                <label for="html">HTML</label>
+                <input type="checkbox" id="css" name="css"  class="subject">
+                <label for="css">CSS</label>
+                <input type="checkbox" id="javascript" name="javascript"  class="subject">
+                <label for="javascript">JAVASCRIPT</label>
+                <input type="checkbox" id="nodejs" name="nodejs" class="subject">
+                <label for="nodejs">NODE JS</label>
+            </fieldset>
+        </div>
+        <div>
+            <button class="allSelect">모두 선택</button>
+            <button class="reset">모두 해제</button>
+            <button class="submit">전송</button>
+        </div>
+    </div>
+    <script>
+        // 중복 체크된 데이터를 저장하기 위한 배열 
+        // for, forEach, for~of
+        //const subjects = document.querySelector('input[type="checkbox"]');
+        const subjects = document.querySelectorAll('.subject');
+
+         
+    
+        document.querySelector('.submit').addEventListener('click', function(){
+            // 체크된 데이터 저장
+            const checkedSubjects = [];
+            for( let a = 0 ; a < subjects.length ; a++){
+                if(subjects[a].checked){
+                    checkedSubjects.push(subjects[a].getAttribute('id'));
+                    //checkedSubjects.push(subjects.id);
+                }
+            }
+
+            console.log( checkedSubjects ) ;
+        })
+        
+        document.querySelector('.reset').addEventListener('click', function(){
+            for( subject of subjects){
+                 subject.checked = false; 
+            }
+        })
+
+        document.querySelector('.allSelect').addEventListener('click', function(){
+            subjects.forEach(function(subject, index){
+                subject.checked = true; 
+            }) 
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .carousel-container {
+            width: 800px;
+            margin: 0 auto;
+            border: 5px solid black;
+            overflow: hidden;
+        }
+
+        .carousel-slide {
+            display: flex;
+            width: 100%;
+            height: 500px;
+            /* transform: translateX(calc(-800px * 4 )) */
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            /* width: 800px; */
+        }
+
+        .controls {
+            width: 100px;
+            margin: 0 auto;
+        }
+
+        .controls button {
+            padding: 10px;
+        }
+
+        .indecator-container {
+            margin: auto;
+            width: calc(20px * 4 + 20px);
+            border: 1px solid black;
+            position: relative;
+            overflow: hidden;
+            height: 20px;
+        }
+
+        .indecator {
+            width: calc(20px * 7 + 20px);
+            display: flex;
+            gap: 5px;
+            list-style: none;
+            position: absolute;
+            left: -20px;
+        }
+
+        .indecator li {
+            width: 20px;
+            height: 20px;
+            background-color: #e2e0e0;
+        }
+
+        li.active {
+            background-color: gray
+        }
+    </style>
+</head>
+
+<body>
+    <!-- lastclone 이미지를 찾으면  보이려고하는 4이미지, 실제로는 5번째 이미지-->
+    <!-- firstclone 이미지를 찾으면  보이려고하는 1이미지, 실제로는 2번째 이미지-->
+    <div class="carousel-container">
+        <div class="carousel-slide">
+            <img id="lastclone" src="http://placekitten.com/800/430" alt="">
+            <img src="http://placekitten.com/800/400" alt="">
+            <img src="http://placekitten.com/800/410" alt="">
+            <img src="http://placekitten.com/800/420" alt="">
+            <img src="http://placekitten.com/800/430" alt=""> 
+            <img id="firstclone" src="http://placekitten.com/800/400" alt="">
+        </div>
+    </div>
+
+    <div class="controls">
+        <button id="prevBtn">pre</button>
+        <button id="nextBtn">next</button>
+    </div>
+
+    <div class="indecator-container">
+        <!-- 이미지를 속인것과 같이 인디케이터도 first와 last를 숨김  -->
+        <ul class="indecator">
+            <li>5</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>1</li>
+        </ul>
+    </div>
+
+    <script>
+        const carouselContainer = document.querySelector('.carousel-container');
+        const prevBtn = document.querySelector('#prevBtn');
+        const nextBtn = document.querySelector('#nextBtn');
+        const carouselSlideImgs = document.querySelectorAll('.carousel-slide img');
+        const carouselSlide = document.querySelector('.carousel-slide');
+        const indecators = document.querySelectorAll('.indecator li');
+
+        let count = 1;
+        const size = -800;
+
+        carouselSlide.style.transform = `translateX(${count * size}px)`; 
+        //                  transform  : translateX(calc(-800px * 4 ))
+         
+        nextBtn.addEventListener('click', function(){
+            nextHandle();
+            indecator();
+        })
+        prevBtn.addEventListener('click', function(){
+            carouselSlide.style.transition = `0.4s`; 
+            count--;
+            carouselSlide.style.transform = `translateX(${count * size}px)`; 
+            indecator()
+        })
+        function nextHandle(){
+            carouselSlide.style.transition = `0.4s`; 
+            count++;
+            carouselSlide.style.transform = `translateX(${count * size}px)`;  
+        }
+
+        carouselSlide.addEventListener('transitionend', function(){
+            // if( carouselSlideImgs[count].getAttribute('id') === 'firstclone')
+            if( carouselSlideImgs[count].id === 'firstclone'){
+                carouselSlide.style.transition = `none`; 
+                count = carouselSlideImgs.length - count; // 6 - 5 = 1
+                carouselSlide.style.transform = `translateX(${count * size}px)`;
+            }
+            
+            if( carouselSlideImgs[count].id === 'lastclone'){
+                carouselSlide.style.transition = `none`; 
+                count = carouselSlideImgs.length - 2; 
+                carouselSlide.style.transform = `translateX(${count * size}px)`;
+            }
+            indecator();
+        })
+
+        function indecator(){
+            indecators.forEach( function(btn, index){
+                btn.classList.remove('active');
+            })
+            indecators[count].classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

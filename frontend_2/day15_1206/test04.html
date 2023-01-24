@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .select-box{ position: absolute; bottom:0; 
+            padding: 20px;
+        } */
+        #select1 {
+            padding: 10px;
+        }
+
+        #select1>option {
+            padding: 10px;
+            border: 1px solid black;
+        }
+
+        #select2 {
+            appearance: none;
+            /* 기본 성격 지우기 */
+            padding: 10px 40px 10px 10px;
+            background-image: url(./images/caret-down-square-solid-24.png);
+            background-repeat: no-repeat;
+            background-position: calc(100% - 10px) center;
+        }
+
+        #select2.active {
+            background-image: url(./images/caret-up-square-solid-24.png);
+        }
+
+        /* 아래쪽에 보여질 자리가 없으면 위로 팝업 되는 것처럼 표시
+            화살표 표시 바꾸기
+            이미지 준비
+        */
+    </style>
+</head>
+
+<body>
+    <h1> select form 데이타 사용 </h1>
+    <div class="form-container">
+        <div>
+            <input type="text" placeholder="통신사를 선택하세요." id="inputSubject">
+        </div>
+        <div class="select-box">
+            <select name="select1" id="select1">
+                <option value=" ">통신사를 선택하세요.</option>
+                <option value="0">SKT</option>
+                <option value="1">KT</option>
+                <option value="2">LG</option>
+            </select>
+            <select name="select2" id="select2">
+                <option>통신사를 선택하세요.</option>
+                <option>SKT</option>
+                <option>KT</option>
+                <option>LG</option>
+            </select>
+        </div>
+        <div>
+            <button class="reset">초기화</button>
+            <button class="submit">전송</button>
+        </div>
+    </div>
+    <script>
+        const community = ['SKT', 'KT', 'LG']
+        document.querySelector('#select1').addEventListener('change', function (event) {
+            // console.log( event.target.value );
+            // null == false // !false =>  true 
+
+            if (event.target.value !== " ") {
+                console.log(event.target.value);
+                console.log(community[event.target.value]);
+            }
+        })
+
+        document.querySelector('#select2').addEventListener('change', function (event) {
+            console.log(event.target.value);
+            event.currentTarget.classList.remove('active');
+        })
+
+        document.querySelector('#select2').addEventListener('focus', function (event) {
+            event.currentTarget.classList.add('active');
+        })
+
+    </script>
+</body>
+
+</html>

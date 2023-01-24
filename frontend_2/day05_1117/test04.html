@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+        .tabs-container{ width: 500px; margin: 100px auto; }
+        .tabs-container input { display: none;}
+        .tab-btns { display: flex; }
+        .tab-btns>label { display: block; width:33.333333%; height: 40px;
+            text-align: center;  line-height: 40px;
+            background-color: aliceblue; 
+            border:1px solid darkblue; 
+            border-right:none; 
+        }
+        .tab-btns>label:last-child{  border-right:1px solid darkblue; }
+        .tab-contents{position: relative; overflow: hidden; 
+                    height: 150px;
+        }
+        .tab-contents>div{ padding:10px;    
+                border:1px solid darkblue; opacity: 0;
+                border-top:none;  position: absolute;  left: 100%;  width:100%; 
+                transition: 0.4s;
+                /* 애니메이션  */
+        }
+
+        .tabs-container>input:nth-child(1):checked~.tab-btns>label:nth-child(1){
+            background-color: black;  color:white; 
+        }
+        .tabs-container>input:nth-child(2):checked~.tab-btns>label:nth-child(2){
+            background-color: black; color:white; 
+        }
+        .tabs-container>input:nth-child(3):checked~.tab-btns>label:nth-child(3){
+            background-color: black; color:white; 
+        }
+        .tabs-container>input:nth-child(1):checked~.tab-contents>div:nth-child(1){
+            left:0; opacity: 1;
+        }
+        .tabs-container>input:nth-child(2):checked~.tab-contents>div:nth-child(2){
+            left:0; opacity: 1;
+        }
+        .tabs-container>input:nth-child( 3):checked~.tab-contents>div:nth-child(3){
+            left:0; opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabs-container">
+        <input type="radio" id="tab1" name="tab-btn"  checked>
+        <input type="radio" id="tab2" name="tab-btn">
+        <input type="radio" id="tab3" name="tab-btn">
+        <div class="tab-btns">
+            <label for="tab1">TAB1</label>
+            <label for="tab2">TAB2</label>
+            <label for="tab3">TAB3</label>
+        </div>
+        <div class="tab-contents">
+            <div class="tab-conent">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae rerum reiciendis ex repellendus harum sequi pariatur corporis sint adipisci nulla aut magni vel accusamus magnam praesentium, aperiam fugiat illum. Id.
+            </div>
+            <div class="tab-conent">
+                ipsum dolor sit amet consectetur, adipisicing elit. Vitae rerum reiciendis ex repellendus harum sequi pariatur corporis sint adipisci nulla aut magni vel accusamus magnam praesentium, aperiam fugiat illum. Id.
+            </div>
+            <div class="tab-conent">
+                dolor sit amet consectetur, adipisicing elit. Vitae rerum reiciendis ex repellendus harum sequi pariatur corporis sint adipisci nulla aut magni vel accusamus magnam praesentium, aperiam fugiat illum. Id.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

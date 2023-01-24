@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+        .movies-container {}
+
+        .movies-contents {
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .movies-box {
+            width: calc((100% - 90px) / 4);
+            height: 300px;
+            background-color: orange;
+        }
+
+        .movies-box {}
+
+        .movie-img {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .movie-img>img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- https://www.kobis.or.kr/kobisopenapi/homepg/apiservice/searchServiceInfo.do -->
+    <div class="input-container">
+        <input type="text" id="userInput" placeholder="검색어를 입력하세요">
+    </div>
+    <div class="movies-container">
+        <div class="movies-contents">
+            <div class="movie-box"></div>
+            <div class="movie-box"></div>
+            <div class="movie-box"></div>
+            <div class="movie-box"></div>
+            <div class="movie-box"></div>
+            <div class="movie-box"></div>
+            <div class="movie-box"></div>
+            <div class="movie-box"></div>
+            <div class="movie-box"></div>
+            <div class="movie-box"></div>
+            <!-- <div class="movie-box">
+                <div class="movie-img">
+                    <img src="http://placekitten.com/400/300" alt="">
+                </div>
+                <div class="movie-details">
+                    <h3>TITLE</h3>
+                    <div class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure numquam quibusdam consequuntur voluptates voluptatibus, hic temporibus fuga ut qui! Doloremque illum libero sequi suscipit odit, nostrum ut ipsa saepe nam?</div>
+                    <ul class="genres">
+                        <li>필요한 개수만큼 생성</li>
+                    </ul>
+                    <div class="newYear">개봉일정</div>
+                    <div class="rating">별점처리</div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <script>
+        const userInput = document.querySelector('#userInput');
+        userInput.addEventListener('keyup', (event) => {
+            console.log(event.target.value);
+            document.querySelector('.log').innerHTML = event.target.value;
+        })
+
+        const URL = 'https://yts.mx/api/v2/list_movies.json';
+        fetch(URL).then(data => data.json())
+            .then(data => {
+                // console.log(data);
+
+                // if( data.status ){
+                //     console.log( data.data.limit);
+                //     console.log( data.data.movies);
+                //     console.log( data.data.movies.length);
+                // }
+                movieList(data.data.movies);
+            })
+
+        function movieList(movies) {
+            console.log(movies);
+
+            for (movie of movies) {
+                createDom(movie);
+            }
+        }
+
+        function createDom(movie) {
+            const moviesContents = document.querySelector('.movies-contents');
+
+            const movieBox = document.createElement('div');
+            movieBox.classList.add('movie-box');
+
+            const movieImg = document.createElement('div');
+            movieImg.classList.add('movie-img');
+
+            const img = document.createElement('img');
+            img.setAttribute('src', movie.large_cover_image);
+            img.setAttribute('title', movie.summary);
+
+            movieImg.append(img);
+            movieBox.append(movieImg);
+
+            const movieDetails = document.createElement('div');
+            movieDetails.classList.add('movie-details');
+
+            const h3 = document.createElement('h3');
+            h3.innerHTML = movie.title;
+            movieDetails.append(h3); // 제목의 길이를 어떻게 조절할 것인가 
+            movieBox.append(movieDetails);
+
+            const ul = document.createElement('ul');
+            ul.classList.add('genres');
+
+            const genres = movie.genres;
+            for (genre of genres) {
+                const li = document.createElement('li');
+                li.innerHTML = genre;
+                ul.append(li);
+            }
+            movieBox.append(ul);
+
+            const rating = document.createElement('div');
+            rating.classList.add('rating');
+            rating.innerHTML = movie.rating;
+
+            movieBox.append(rating);
+            moviesContents.append(movieBox);
+        }
+    </script>
+
+    <!-- 
+     git에 업로드 할 예정임 
+     검색
+   -->
+</body>
+
+</html>

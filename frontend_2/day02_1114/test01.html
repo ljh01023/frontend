@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/reset.css">
+    <style>
+         /* 
+            li, td, span
+         */
+        .container>div{ display: table-cell;}
+
+        td{ 
+            width: 200px; height: 50px;
+            overflow: hidden;
+            white-space:nowrap;
+            text-overflow: ellipsis;
+            
+            display: block;
+            /* text-overflow: ellipsis; 는
+                display: block; 일때만 동작
+            */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>BOX1</div>
+        <div>BOX2</div>
+        <div>BOX3</div>
+        <div>BOX4</div>
+        <div>BOX5</div>
+    </div>
+
+    <table>
+        <tr>
+            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum rem, suscipit error consequatur quia modi nisi atque odio, voluptatum impedit assumenda? Voluptatibus accusantium veniam dolorem, odit quibusdam a libero dolores.</td>
+        </tr>
+    </table>
+</body>
+</html>

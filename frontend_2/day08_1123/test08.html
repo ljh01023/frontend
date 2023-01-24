@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div>
+        <pre>
+            입력(메모리) -> 처리(연산자) ->  출력(DOM, console)
+        </pre>
+    </div>
+    <script>
+        let  selectData = confirm('장바구니로 갈까요?');
+        console.log(selectData);
+        // true, false  분기를 달리할 수 있음 
+
+        let num = prompt('정수를 입력하세요.');
+        // 대부분 문자열로 처리 
+
+        console.log( parseInt(num) + 20 );
+
+        alert('정말 로그아웃할까요?');
+    </script>
+</body>
+</html>

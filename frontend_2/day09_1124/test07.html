@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+        
+        h1{ background-color: red;}
+         
+        /* .active{} */
+    </style>
+</head>
+<body>
+    <h1 style="background-color:skyblue"><span> DOM </span></h1>
+    <div>  Document Object Model </div>
+    <div>  태그 : 명령어,   요소 = element,  node </div>
+    <script>
+        const h1 = document.querySelector('h1');
+        h1.style.backgroundColor = 'skyblue';
+        h1.style.border = '1px solid black';
+        h1.innerHTML = '<a href="url"></a>';
+        //h1.textContent = 'title';
+
+        console.log( h1.innerHTML); // 보안에 취약 
+        console.log( h1.textContent); // 보안에 강점
+    </script>
+    <div>
+        크로스브라우징 : 자바스크립트
+        '' ""  "''"  '""'  ``
+    </div>
+</body>
+</html>

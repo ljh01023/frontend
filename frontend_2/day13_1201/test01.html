@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>indecator</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <style>
+        .slider-container{ width: 500px; height: 400px;}
+        .indector{ display: flex; gap: 5px; margin: 50px auto ;
+            justify-content: center;
+        }
+        .indector>li{ width: 50px; height:50px; background-color: gray;}
+
+        .indector>li.active{ background-color: red;}
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+
+        <!-- 
+            custom  attribute 
+             data-속성
+             data-path="url"
+             setAttribute
+             getAttrubute
+             datset
+         -->
+        <ul class="indector">
+            <li data-value="0">0</li>
+            <li data-value="1">1</li>
+            <li data-value="2">2</li>
+            <li data-value="3">3</li>
+            <li data-value="4">4</li> 
+        </ul>
+    </div>
+    <script>
+        const list = document.querySelectorAll('.indector>li');
+        let currentList;
+        let timer ;
+        let timerToggle  =  false; 
+
+        list.forEach(function( li, index ){
+            li.addEventListener('click', clickLiHandler); 
+            // () 
+        })
+        
+        function setTimer(){
+            if( !timerToggle )  timer = setInterval( liHandler, 3000);
+            else clearInterval(timer);
+        }
+
+        setTimer();
+
+        function clickLiHandler( event ){
+            timerToggle = true; 
+            setTimer(); // 끄기도하고 켜기도 하는 역활
+            
+            list.forEach( function(li , index ){
+                if( index  ===  parseInt(event.target.innerHTML) ){
+                   //count = index; 
+                   count = li.getAttribute('data-value');
+                }
+            })
+                
+            liHandler();
+        }
+        let count = 0; 
+        function liHandler( ){ 
+            // event 핸들러 함수 아니라서 파라미터를 넘길 수 있음 
+            if(currentList)  currentList.classList.remove('active');
+
+            let target = list[count%5]; // 0 ~ 4
+            console.log(target);
+            target.classList.add('active');
+
+            currentList = target; 
+            count++;
+        }
+
+        liHandler();// click 트리거 처럼 만듬, init()
+        
+    </script>
+
+    <script>
+        // list[0].addEventListener('click', liHandler)
+        // list[1].addEventListener('click', liHandler)
+        // list[2].addEventListener('click', liHandler)
+        // list[3].addEventListener('click', liHandler)
+        // list[4].addEventListener('click', liHandler)
+
+        
+        //let currentList = list[0]; 
+        // console.log( currentList )
+
+        // function liHandler(event){
+        //     if(currentList)  currentList.classList.remove('active');
+
+        //     let target = event.target; 
+        //     console.log(target);
+        //     target.classList.add('active');
+
+        //     currentList = target; 
+        // }
+
+    </script>
+</body>
+</html>

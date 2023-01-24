@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>  
+    <ul>
+        <li>list01</li>
+        <li>list02</li>
+        <li>list03</li>
+        <li>list04</li>
+        <li>list05</li>
+        <li class="active">list06</li>
+        <li>list07</li>
+        <li>list08</li>
+        <li>list09</li>
+        <li>list10</li>
+    </ul>
+
+    <script>
+        const lists = document.querySelectorAll('li');
+        // 유사배열 
+        console.log( lists );
+        const listCollection = document.getElementsByTagName('li');
+        // 유사배열 
+        console.log( listCollection );
+
+        lists.forEach( (li, index)=>{
+            console.log( li);
+        })
+        
+        // 유사배열을 배열로 반환
+        const lis = [...listCollection];
+        lis.forEach( (li, index)=>{
+            console.log( li);
+        })
+
+        // Array 클래스 접근
+        const resutl1 = Array.from(listCollection);
+        console.log( resutl1);
+
+        // 데이터 포함 유무 : 
+        // 배열.includes(), 문자열.includes() : return true, false
+        // 클래스.contains() : return true, false
+        // indexOf() : 리턴값이 숫자(데이타가 존재하는 위치)
+
+        const result2 = 'hello javascript!!'.includes('java');
+        console.log( result2 ); // true
+        
+        const snacks = ['새우깡',  '꿀과빼기', '콘칩', '감자깡', '포테이토칩', '에이스', '참크리커'];
+        const result3 = snacks.includes('java');
+        console.log( result3 ); // false
+
+        lists.forEach((list, index)=>{
+            let confirmData = list.classList.contains('active');
+            if( confirmData ){
+                console.log( `lists[${index}]` )
+            }
+        })
+    </script>
+</body>
+</html>

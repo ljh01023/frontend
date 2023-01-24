@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js</title>
+</head>
+<body>
+
+    <pre>
+        var | let | const 변수  =  값 ( 숫자, 문자, true, false,  그룹 : 배열, 함수, 객체 )
+    </pre>
+    <script>
+        var num1 = 10; 
+        var num1 = 'number'; // 중복선언해도 오류가 발생하지 않음
+        //let num1 = 'test'; // 중복선언하면 오류 발생
+        let str = 'number';
+
+        const key_word = '123465767'; 
+        console.log( key_word ); // 대문자 
+
+        const ary_number = [0 , 1, 2, 3, 4];
+        ary_number[5] = 5; // 동적으로 데이터 생성
+        // 배열 : 연속된 메모리 공간에 동일한 데이터를 순차적으로
+        // 인덱스와 값을 쌍으로 연결하여 저장하는 자료구조
+        // ary_number = num1; 
+        ary_number[10] = 'hello';
+        console.log( ary_number.length );
+
+        ary_number.push('last'); //  스택 메모리구조 : 맨뒤에 삽입
+        console.log( ary_number );
+        ary_number.pop(); // 스택 메모리상 맨 뒤의 데이타 삭제
+
+        console.log( ary_number );
+        delete  ary_number[3];
+        console.log( ary_number );
+
+        ary_number.unshift('data'); //  맨처음데이타[0] 데이터 삽입
+        console.log( ary_number );
+        ary_number.shift(); //  맨처음데이타[0] 데이터 삭제
+        console.log( ary_number );
+        // shift(), push()를 이용하여 큐메모리를 구현할 수 있음 
+
+        ary_number[ary_number.length] = function(){
+            console.log('함수도 객체');
+        }
+        console.log( ary_number );
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1>배열</h1>
+    <div>
+        배열API 좀더 섬세히 개발이 되어 있음
+        배열은 연속적인 메모리에 들어가는 자료 구조
+
+    </div>
+    <!-- <script>
+        const ary1 = [1, 2, 3, 4, 5, 6, 7];
+        ary1.push(8);
+        ary1.push(ary1.length + 1);
+
+        console.log(ary1);
+        ary1.pop();
+        console.log(ary1);
+
+        // 자리위치를 맞추기 위해서 unshift, shift 대상이 아닌 나머지 자료구조의 이동 필요
+        // 상당한 과부하
+        ary1.unshift(0);
+        ary1.unshift(-1);
+        console.log(ary1);
+        ary1.shift();
+        console.log(ary1);
+    </script> -->
+    <script>
+        const ary1 = [11, -2, 30, -44, 95, 106, 7];
+        const snacks = ['새우깡', '꿀과빼기', '콘칩', '감자깡', '포테이토칩', '에이스', '참크리커'];
+
+        // 숫자 데이터 중 5가 있은지 찾기
+        ary1.forEach((num, index) => {
+            if (num === 5) {
+                // return index;
+                console.log(`${num} : ary1[${index}]`);
+            }
+        })
+
+        console.log(ary1.indexOf(5)); // 데이터의 위치를 검색
+
+        // // indexOf() : 데이터가 있으면 있는 위치를 리턴 0이상의 index를 리턴
+        // //             없으면 -1
+        // // 0이 아닌 숫자 === true,  0 === false
+        snacks.forEach((snack, index) => {
+            if (snack.indexOf("깡") >= 0) {
+                // return index;
+                console.log(`${snack} : snacks[${index}]`);
+            }
+        })
+
+        // // 함수 : 일급객체( 변수처럼 실행문, 파라미터(콜백), 리턴(하이오더함수))
+        // const result1 = snacks.filter(snack => snack.indexOf('깡') > -1);
+        // console.log(result1); // 배열로 리턴
+
+        // // 문자열의 길이가 4글자 이상인 경우
+        // const result2 = snacks.filter(snack => snack.length >= 4);
+        // console.log(result2); // 배열로 리턴
+
+        // // 양수만 검색
+        // const result3 = ary1.filter(num => num >= 0);
+        // console.log(result3); // 배열로 리턴
+
+        // // 짝수만 검색
+        // const result4 = ary1.filter(num => num % 2 === 0);
+        // console.log(result4); // 배열로 리턴
+
+        // const students = [
+        //     { id: 1, name: 'kim', age: 30 },
+        //     { id: 2, name: 'park', age: 23 },
+        //     { id: 3, name: 'lee', age: 22 },
+        //     { id: 4, name: 'you', age: 33 },
+        // ]
+
+        // const result5 = [];
+        // students.forEach((student, index) => {
+        //     if (student.age >= 30) {
+        //         const std = {};
+        //         std.id = index;
+        //         std.name = student.name;
+        //         std.age = student.age;
+
+        //         result5.push(std);
+        //         //console.log(`id : ${index}, name : ${student.name}, age : ${student.age}`);
+        //     }
+        // })
+
+        // console.log(result5);
+
+        // const result6 = students.filter(student => student.age >= 30);
+        // console.log(result6);
+
+        // const result7 = students.filter(function (student) {
+        //     return student.age >= 30
+        // });
+        // console.log(result7);
+
+    </script>
+</body>
+
+</html>
